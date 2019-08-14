@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./main.css";
+import { connect } from "react-redux";
+import "./login.css";
 
-class Login extends Component {
+class UnconnectedLogin extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,8 +20,8 @@ class Login extends Component {
     this.setState({ password: event.target.value });
   };
 
-  handleSubmit = async evt => {
-    evt.preventdefault();
+  handleSubmit = async event => {
+    event.preventDefault();
     let data = new FormData();
     data.append("username", this.state.username);
     data.append("password", this.state.password);
@@ -32,7 +33,7 @@ class Login extends Component {
     let responseBody = await response.text();
     let body = JSON.parse(responseBody);
     if (!body.success) {
-      alert("Oh Hell Nah");
+      console.log("failed");
       return;
     }
     this.props.dispatch({
@@ -40,7 +41,9 @@ class Login extends Component {
     });
   };
   render = () => {
+    console.log(this.props.loginStatus);
     return (
+<<<<<<< HEAD
       <div>
         <h2>Log In</h2>
         <form onSubmit={this.handleSubmit}>
@@ -69,8 +72,51 @@ class Login extends Component {
             <Link to={"/signup"}>Create an Account</Link>
           </div>
         </form>
+=======
+      <div id="container-login">
+        <div className="form-wrap-login">
+          <form onSubmit={this.handleSubmit}>
+            <h1 className="login-header">Sign in</h1>
+            <div className="form-group-login">
+              <input
+                type="text"
+                value={this.state.username}
+                onChange={this.handleNameChange}
+                placeholder="Username"
+                id="user-name"
+                required
+              />
+            </div>
+            <div className="form-group-login">
+              <input
+                type="password"
+                value={this.state.password}
+                onChange={this.handlePasswordChange}
+                placeholder="Password"
+                id="password"
+                required
+              />
+            </div>
+            <div className="form-group-login">
+              <input type="submit" value="Login" />
+            </div>
+            <div>
+              <a className="create-account-link">
+                <Link to={"/signup"}>Create an Account</Link>
+              </a>
+            </div>
+          </form>
+        </div>
+>>>>>>> 907736be31b6d11393500461de6cf743fd80de6e
       </div>
     );
   };
 }
+
+let mapStatetoProps = state => {
+  return { loginStatus: state.loginStatus };
+};
+
+let Login = connect(mapStatetoProps)(UnconnectedLogin);
+
 export default Login;

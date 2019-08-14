@@ -1,0 +1,79 @@
+/* Login Form CSS */
+
+a {
+  text-decoration: none;
+}
+
+.login-header {
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+#container-login {
+  margin: 200px auto;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.form-wrap-login {
+  background: #fff;
+  border: 1px solid #bbb;
+  padding: 30px 25px;
+  color: #333;
+}
+
+.form-wrap-login h1,
+.form-wrap-login p {
+  text-align: center;
+}
+
+.form-wrap-login .form-group-login {
+  margin-top: 10px;
+}
+
+.form-wrap-login .form-group-login input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: rgba(221, 221, 221, 0.616) 1px solid;
+  border-radius: 5px;
+}
+
+.form-wrap-login .form-group-login input[type="text"]:hover {
+  border: rgba(119, 118, 118, 0.548) 1px solid;
+}
+
+.form-wrap-login .form-group-login input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: #ddd 1px solid;
+  border-radius: 5px;
+}
+
+.form-wrap-login .form-group-login input[type="password"]:hover {
+  border: rgba(119, 118, 118, 0.548) 1px solid;
+}
+
+.form-wrap-login .form-group-login input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  color: white;
+  background-color: #f75151;
+  border-color: #f75151;
+}
+.form-wrap-login .form-group-login input[type="submit"]:hover {
+  background-color: #ff5656;
+  border-color: #ff5656;
+}
+
+.create-account-link {
+  text-align: center;
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+}

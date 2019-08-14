@@ -31,11 +31,14 @@ app.post("/login", upload.none(), (req, res) => {
   let username = req.body.username;
   let password = req.body.password;
   dbo.collection("users").findOne({ username }, (err, user) => {
+    console.log(user);
     if (err) {
+      console.log("1");
       res.send(JSON.stringify({ success: false }));
       return;
     }
     if (user === null) {
+      console.log("2");
       res.send(JSON.stringify({ success: false }));
       return;
     }
@@ -46,6 +49,7 @@ app.post("/login", upload.none(), (req, res) => {
       res.send(JSON.stringify({ success: true }));
       return;
     }
+    console.log("3");
     res.send(JSON.stringify({ success: false }));
   });
 });
@@ -53,15 +57,20 @@ app.post("/login", upload.none(), (req, res) => {
 app.post("/signup", upload.none(), (req, res) => {
   let username = req.body.username;
   let password = req.body.password;
+  let email = req.body.email;
   dbo.collection("users").findOne({ username }, (err, user) => {
     if (err) {
       res.send(JSON.stringify({ success: false }));
+      return;
     }
     if (user === null) {
-      dbo.collection("users").insertOne({ username, password });
+      dbo
+        .collection("users")
+        .insertOne({ username, password: sha1(password), email });
       res.send(JSON.stringify({ success: true }));
+      return;
     }
-    res.send(JSON, stringify({ success: false }));
+    res.send(JSON.stringify({ success: false }));
   });
 });
 
