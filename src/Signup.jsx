@@ -23,7 +23,7 @@ class Signup extends Component {
     this.setState({ password: event.target.value });
   };
   handleConfirmPasswordChange = event => {
-    this.setState({ confirmpassword: event.target.value });
+    this.setState({ confirmPassword: event.target.value });
   };
 
   handleSubmit = async event => {
@@ -47,9 +47,33 @@ class Signup extends Component {
   };
 
   render = () => {
-    let passwordTextColor = { color: "green" }
-    if (this.state.password !== this.state.confirmPassword) {
-      passwordTextColor = { color: "red"}
+    let passwordTextColor = { color: "black" };
+    let confirmPasswordTextColor = {
+      color: "black"
+    };
+    if (
+      this.state.confirmPassword !== this.state.password &&
+      this.state.password.length > 0
+    ) {
+      confirmPasswordTextColor = { color: "red", outline: "red 1px solid" };
+    }
+    if (
+      this.state.confirmPassword === this.state.password &&
+      this.state.password.length > 0
+    ) {
+      confirmPasswordTextColor = { color: "green", outline: "green 1px solid" };
+    }
+    if (
+      this.state.confirmPassword === this.state.password &&
+      this.state.password === ""
+    ) {
+      confirmPasswordTextColor = {};
+    }
+    if (
+      this.state.confirmPassword.length === 0 &&
+      this.state.password.length > 0
+    ) {
+      confirmPasswordTextColor = {};
     }
     return (
       <div id="container-signup">
@@ -89,7 +113,7 @@ class Signup extends Component {
             </div>
             <div className="form-group-signup">
               <input
-                style={passwordTextColor}
+                style={confirmPasswordTextColor}
                 name="cPwd"
                 type="password"
                 value={this.state.confirmPassword}
