@@ -5,50 +5,53 @@ class NewItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      WatchBrand: "",
-      WatchImgLoc: undefined,
-      WatchModelNum: "",
-      WatchMovementOption: "",
-      WatchSaleDate: "",
-      WatchSaleLoc: "",
-      WatchSalePrice: "",
-      WatchTypeOption: ""
+      watchBrand: "",
+      watchImgLoc: undefined,
+      watchModelNum: "",
+      watchMovementOption: "",
+      watchSaleDate: "",
+      watchSaleLoc: "",
+      watchSalePrice: "",
+      watchTypeOption: ""
     };
   }
 
   handleWatchBrandChange = event => {
-    this.setState({...this.state, WatchBrand: event.target.value });
+    this.setState({...this.state, watchBrand: event.target.value });
+  };
+  handleWatchImgLocChange = event => {
+    this.setState({...this.state, watchImgLoc: event.target.value });
   };
   handleWatchModelNumChange = event => {
-    this.setState({...this.state, WatchModelNum: event.target.value });
+    this.setState({...this.state, watchModelNum: event.target.value });
   };
   handleWatchMovementChange = event => {
-    this.setState({...this.state, WatchMovementOption: event.target.value });
+    this.setState({...this.state, watchMovementOption: event.target.value });
   }; // drop-down bar
   handleWatchSaleDateChange = event => {
-    this.setState({...this.state, WatchSaleDate: event.target.value });
+    this.setState({...this.state, watchSaleDate: event.target.value });
   };
   handleWatchSaleLocChange = event => {
-    this.setState({...this.state, WatchSaleLoc: event.target.value });
+    this.setState({...this.state, watchSaleLoc: event.target.value });
   };
   handleWatchSalePriceChange = event => {
-    this.setState({...this.state, WatchSalePrice: event.target.value });
+    this.setState({...this.state, watchSalePrice: event.target.value });
   };
   handleWatchTypeChange = event => {
-    this.setState({...this.state, WatchTypeOption: event.target.value });
+    this.setState({...this.state, watchTypeOption: event.target.value });
   }; // drop-down bar
 
   handleSubmit = async evt => {
     evt.preventdefault();
     let data = new FormData();
-    data.append(WatchBrand, this.state.WatchBrand);
-    data.append(WatchImgLoc, this.state.WatchImgLoc);
-    data.append(WatchModelNum, this.state.WatchModelNum);
-    data.append(WatchMovementOption, this.state.WatchMovement);
-    data.append(WatchSaleDate, this.state.WatchSaleDate);
-    data.append(WatchSaleLoc, this.state.WatchSaleLoc);
-    data.append(WatchSalePrice, this.state.WatchSalePrice);
-    data.append(WatchTypeOption, this.state.WatchType);
+    data.append(watchBrand, this.state.watchBrand);
+    data.append(watchImgLoc, this.state.watchImgLoc);
+    data.append(watchModelNum, this.state.watchModelNum);
+    data.append(watchMovementOption, this.state.watchMovement);
+    data.append(watchSaleDate, this.state.watchSaleDate);
+    data.append(watchSaleLoc, this.state.watchSaleLoc);
+    data.append(watchSalePrice, this.state.watchSalePrice);
+    data.append(watchTypeOption, this.state.watchType);
     fetch("/newItem", {
       method: "POST",
       body: data
@@ -61,9 +64,20 @@ class NewItem extends Component {
         <h2>Refine your search</h2>
         <form id="newWatch" onSubmit={this.handleSubmit} method="POST">
           <div>
+            <input 
+              type="file"
+              value={this.state.watchImgLoc}
+              onChange={this.handleWatchImgLocChange} 
+              name="watchPhoto"   
+              placeholder="Upload watch photo here"
+              multiple 
+              required
+            />
+          </div>
+          <div>
             <input
               type="text"
-              value={this.state.WatchSalePrice}
+              value={this.state.watchSalePrice}
               onChange={this.handleWatchSalePriceChange}
               placeholder="Price"
               required
@@ -72,7 +86,7 @@ class NewItem extends Component {
           <div>
             <input
               type="text"
-              value={this.state.WatchBrand}
+              value={this.state.watchBrand}
               onChange={this.handleWatchBrandChange}
               placeholder="Brand"
               required
@@ -81,7 +95,7 @@ class NewItem extends Component {
           <div>
             <input
               type="text"
-              value={this.state.WatchSaleLoc}
+              value={this.state.watchSaleLoc}
               onChange={this.handleWatchSaleLocChange}
               placeholder="Location"
               required
@@ -90,7 +104,7 @@ class NewItem extends Component {
           <div>
             <input
               type="text"
-              value={this.state.WatchSaleDate}
+              value={this.state.watchSaleDate}
               onChange={this.handleWatchSaleDateChange}
               placeholder="DD/MM/YYYY"
             />
@@ -98,7 +112,7 @@ class NewItem extends Component {
           <div>
             <input
               type="text"
-              value={this.state.WatchModelNum}
+              value={this.state.watchModelNum}
               onChange={this.handleWatchModelNumChange}
               placeholder="Model #"
               required
@@ -106,7 +120,7 @@ class NewItem extends Component {
           </div>
           <div>
             <label for="input-watchtype">Style Type</label>
-            <select id="input-watchtype" tabIndex="2">
+            <select id="input-watchtype" tabIndex="2" value={this.state.watchTypeOption} onChange={this.handleWatchTypeChange}>
               <option value="0">Driver</option>
               <option value="1">Dress</option>
               <option value="2">Field</option>
@@ -114,10 +128,10 @@ class NewItem extends Component {
           </div>
           <div>
             <label for="input-watchmovement">Movement Type</label>
-            <select id="input-watchmovement" tabIndex="2">
-              <option value="0">Quartz</option>
-              <option value="1">Automatic</option>
-              <option value="2">Manual</option>
+            <select id="input-watchmovement" tabIndex="2" value={this.state.watchMovementOption} onChange={this.handleWatchMovementChange}>
+              <option value="Quartz">Quartz</option>
+              <option value="Automatic">Automatic</option>
+              <option value="Manual">Manual</option>
             </select>
           </div>
           <div>
@@ -129,10 +143,7 @@ class NewItem extends Component {
           <div />
         </form>
         <form id="newWatch" onSubmit={this.handleSubmit} method="POST">
-          <div>
-            <input type="file" name="watchPhoto" multiple />
-            <input type="submit" value="Upload File" name="Add Watch Photo(s)" />
-          </div>
+          
         </form>
       </div>
     );
