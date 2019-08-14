@@ -1,58 +1,58 @@
 import React, { Component } from "react";
 import "./main.css";
 
-class Search extends Component {
+class NewItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      srchWatchBrand: "",
-      srchWatchImgLoc: undefined,
-      srchWatchModelNum: "",
-      srchWatchMovementOption: "",
-      srchWatchSaleDate: "",
-      srchWatchSaleLoc: "",
-      srchWatchSalePrice: undefined,
-      srchWatchTypeOption: ""
+      watchBrand: "",
+      watchImgLoc: undefined,
+      watchModelNum: "",
+      watchMovementOption: "",
+      watchSaleDate: "",
+      watchSaleLoc: "",
+      watchSalePrice: "",
+      watchTypeOption: ""
     };
   }
 
   handleWatchBrandChange = event => {
-    this.setState({ srchWatchBrand: event.target.value });
+    this.setState({ ...this.state, watchBrand: event.target.value });
   };
   handleWatchImgLocChange = event => {
-    this.setState({ srchWatchImgLoc: event.target.value });
-  }; // a file ?
+    this.setState({ ...this.state, watchImgLoc: event.target.value });
+  };
   handleWatchModelNumChange = event => {
-    this.setState({ srchWatchModelNum: event.target.value });
+    this.setState({ ...this.state, watchModelNum: event.target.value });
   };
   handleWatchMovementChange = event => {
-    this.setState({ srchWatchMovementOption: event.target.value });
+    this.setState({ ...this.state, watchMovementOption: event.target.value });
   }; // drop-down bar
   handleWatchSaleDateChange = event => {
-    this.setState({ srchWatchSaleDate: event.target.value });
+    this.setState({ ...this.state, watchSaleDate: event.target.value });
   };
   handleWatchSaleLocChange = event => {
-    this.setState({ srchWatchSaleLoc: event.target.value });
+    this.setState({ ...this.state, watchSaleLoc: event.target.value });
   };
   handleWatchSalePriceChange = event => {
-    this.setState({ srchWatchSalePrice: event.target.value });
+    this.setState({ ...this.state, watchSalePrice: event.target.value });
   };
   handleWatchTypeChange = event => {
-    this.setState({ srchWatchTypeOption: event.target.value });
+    this.setState({ ...this.state, watchTypeOption: event.target.value });
   }; // drop-down bar
 
   handleSubmit = async evt => {
     evt.preventdefault();
     let data = new FormData();
-    data.append(srchWatchBrand, this.state.srchWatchBrand);
-    data.append(srchWatchImgLoc, this.state.srchWatchImgLoc);
-    data.append(srchWatchModelNum, this.state.srchWatchModelNum);
-    data.append(srchWatchMovementOption, this.state.srchWatchMovement);
-    data.append(srchWatchSaleDate, this.state.srchWatchSaleDate);
-    data.append(srchWatchSaleLoc, this.state.srchWatchSaleLoc);
-    data.append(srchWatchSalePrice, this.state.srchWatchSalePrice);
-    data.append(srchWatchTypeOption, this.state.srchWatchType);
-    fetch("/search", {
+    data.append(watchBrand, this.state.watchBrand);
+    data.append(watchImgLoc, this.state.watchImgLoc);
+    data.append(watchModelNum, this.state.watchModelNum);
+    data.append(watchMovementOption, this.state.watchMovement);
+    data.append(watchSaleDate, this.state.watchSaleDate);
+    data.append(watchSaleLoc, this.state.watchSaleLoc);
+    data.append(watchSalePrice, this.state.watchSalePrice);
+    data.append(watchTypeOption, this.state.watchType);
+    fetch("/newItem", {
       method: "POST",
       body: data
     });
@@ -62,58 +62,70 @@ class Search extends Component {
     return (
       <div>
         <h2>Refine your search</h2>
-        <form id="search" onSubmit={this.handleSubmit} method="POST">
+        <form id="newWatch" onSubmit={this.handleSubmit} method="POST">
           <div>
             <input
-              type=""
-              value={this.state.srchWatchSalePrice}
-              onChange=""
+              type="file"
+              value={this.state.watchImgLoc}
+              onChange={this.handleWatchImgLocChange}
+              name="watchPhoto"
+              placeholder="Upload watch photo here"
+              multiple
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              value={this.state.watchSalePrice}
+              onChange={this.handleWatchSalePriceChange}
               placeholder="Price"
+              required
             />
           </div>
           <div>
             <input
               type="text"
-              value={this.state.srchWatchBrand}
-              onChange=""
+              value={this.state.watchBrand}
+              onChange={this.handleWatchBrandChange}
               placeholder="Brand"
+              required
             />
           </div>
           <div>
             <input
               type="text"
-              value={this.state.srchWatchSaleLoc}
-              onChange=""
+              value={this.state.watchSaleLoc}
+              onChange={this.handleWatchSaleLocChange}
               placeholder="Location"
+              required
             />
           </div>
           <div>
             <input
               type="text"
-              value={this.state.srchWatchSaleDate}
-              onChange=""
+              value={this.state.watchSaleDate}
+              onChange={this.handleWatchSaleDateChange}
               placeholder="DD/MM/YYYY"
             />
           </div>
           <div>
             <input
               type="text"
-              value={this.state.srchWatchModelNum}
-              onChange=""
+              value={this.state.watchModelNum}
+              onChange={this.handleWatchModelNumChange}
               placeholder="Model #"
-            />
-          </div>
-          <div>
-            <input
-              type=""
-              value={this.state.srchWatchImgLoc}
-              onChange=""
-              placeholder=""
+              required
             />
           </div>
           <div>
             <label for="input-watchtype">Style Type</label>
-            <select id="input-watchtype" tabIndex="2">
+            <select
+              id="input-watchtype"
+              tabIndex="2"
+              value={this.state.watchTypeOption}
+              onChange={this.handleWatchTypeChange}
+            >
               <option value="0">Driver</option>
               <option value="1">Dress</option>
               <option value="2">Field</option>
@@ -121,10 +133,15 @@ class Search extends Component {
           </div>
           <div>
             <label for="input-watchmovement">Movement Type</label>
-            <select id="input-watchmovement" tabIndex="2">
-              <option value="0">Quartz</option>
-              <option value="1">Automatic</option>
-              <option value="2">Manual</option>
+            <select
+              id="input-watchmovement"
+              tabIndex="2"
+              value={this.state.watchMovementOption}
+              onChange={this.handleWatchMovementChange}
+            >
+              <option value="Quartz">Quartz</option>
+              <option value="Automatic">Automatic</option>
+              <option value="Manual">Manual</option>
             </select>
           </div>
           <div>
@@ -135,9 +152,10 @@ class Search extends Component {
           </div>
           <div />
         </form>
+        <form id="newWatch" onSubmit={this.handleSubmit} method="POST" />
       </div>
     );
   };
 }
 
-export default Search;
+export default NewItem;
