@@ -8,11 +8,11 @@ class Search extends Component {
       srchWatchBrand: "",
       srchWatchImgLoc: undefined,
       srchWatchModelNum: "",
-      srchWatchMovement: "",
+      srchWatchMovementOption: "",
       srchWatchSaleDate: "",
       srchWatchSaleLoc: "",
       srchWatchSalePrice: undefined,
-      srchWatchType: ""
+      srchWatchTypeOption: ""
     };
   }
 
@@ -26,7 +26,7 @@ class Search extends Component {
     this.setState({ srchWatchModelNum: event.target.value });
   };
   handleWatchMovementChange = event => {
-    this.setState({ srchWatchMovement: event.target.value });
+    this.setState({ srchWatchMovementOption: event.target.value });
   }; // drop-down bar
   handleWatchSaleDateChange = event => {
     this.setState({ srchWatchSaleDate: event.target.value });
@@ -38,7 +38,7 @@ class Search extends Component {
     this.setState({ srchWatchSalePrice: event.target.value });
   };
   handleWatchTypeChange = event => {
-    this.setState({ srchWatchType: event.target.value });
+    this.setState({ srchWatchTypeOption: event.target.value });
   }; // drop-down bar
 
   handleSubmit = async evt => {
@@ -47,11 +47,11 @@ class Search extends Component {
     data.append(srchWatchBrand, this.state.srchWatchBrand);
     data.append(srchWatchImgLoc, this.state.srchWatchImgLoc);
     data.append(srchWatchModelNum, this.state.srchWatchModelNum);
-    data.append(srchWatchMovement, this.state.srchWatchMovement);
+    data.append(srchWatchMovementOption, this.state.srchWatchMovement);
     data.append(srchWatchSaleDate, this.state.srchWatchSaleDate);
     data.append(srchWatchSaleLoc, this.state.srchWatchSaleLoc);
     data.append(srchWatchSalePrice, this.state.srchWatchSalePrice);
-    data.append(srchWatchType, this.state.srchWatchType);
+    data.append(srchWatchTypeOption, this.state.srchWatchType);
     fetch("/search", {
       method: "POST",
       body: data
@@ -111,6 +111,29 @@ class Search extends Component {
               placeholder=""
             />
           </div>
+          <div>
+            <label for="input-watchtype">Style Type</label>
+            <select id="input-watchtype" tabIndex="2">
+              <option value="0">Driver</option>
+              <option value="1">Dress</option>
+              <option value="2">Field</option>
+            </select>
+          </div>
+          <div>
+            <label for="input-watchmovement">Movement Type</label>
+            <select id="input-watchmovement" tabIndex="2">
+              <option value="0">Quartz</option>
+              <option value="1">Automatic</option>
+              <option value="2">Manual</option>
+            </select>
+          </div>
+          <div>
+            <input type="reset">Clear</input>
+          </div>
+          <div>
+            <input type="submit">Search</input>
+          </div>
+          <div />
         </form>
       </div>
     );
