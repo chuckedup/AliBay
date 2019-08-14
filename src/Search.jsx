@@ -5,37 +5,37 @@ class NewItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      srchWatchBrand: "",
-      srchWatchImgLoc: undefined,
-      srchWatchModelNum: "",
-      srchWatchMovementOption: "",
-      srchWatchSaleDate: "",
-      srchWatchSaleLoc: "",
-      srchWatchSalePrice: "",
-      srchWatchTypeOption: ""
+      WatchBrand: "",
+      WatchImgLoc: undefined,
+      WatchModelNum: "",
+      WatchMovementOption: "",
+      WatchSaleDate: "",
+      WatchSaleLoc: "",
+      WatchSalePrice: "",
+      WatchTypeOption: ""
     };
   }
 
   handleWatchBrandChange = event => {
-    this.setState({...this.state, srchWatchBrand: event.target.value });
+    this.setState({...this.state, WatchBrand: event.target.value });
   };
   handleWatchModelNumChange = event => {
-    this.setState({...this.state, srchWatchModelNum: event.target.value });
+    this.setState({...this.state, WatchModelNum: event.target.value });
   };
   handleWatchMovementChange = event => {
-    this.setState({...this.state, srchWatchMovementOption: event.target.value });
+    this.setState({...this.state, WatchMovementOption: event.target.value });
   }; // drop-down bar
   handleWatchSaleDateChange = event => {
-    this.setState({...this.state, srchWatchSaleDate: event.target.value });
+    this.setState({...this.state, WatchSaleDate: event.target.value });
   };
   handleWatchSaleLocChange = event => {
-    this.setState({...this.state, srchWatchSaleLoc: event.target.value });
+    this.setState({...this.state, WatchSaleLoc: event.target.value });
   };
   handleWatchSalePriceChange = event => {
-    this.setState({...this.state, srchWatchSalePrice: event.target.value });
+    this.setState({...this.state, WatchSalePrice: event.target.value });
   };
   handleWatchTypeChange = event => {
-    this.setState({...this.state, srchWatchTypeOption: event.target.value });
+    this.setState({...this.state, WatchTypeOption: event.target.value });
   }; // drop-down bar
 
   handleSubmit = async evt => {
@@ -96,6 +96,15 @@ class NewItem extends Component {
             <input
               type="text"
               value={this.state.srchWatchModelNum}
+              onChange={this.handleWatchModelNumChange}
+              placeholder="Model #"
+            />
+          </div>
+          <div>
+            <label for=""
+            <input
+              type="text"
+              value={this.state.WatchModelNum}
               onChange={this.handleWatchModelNumChange}
               placeholder="Model #"
             />
