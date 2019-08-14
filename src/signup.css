@@ -41,6 +41,12 @@ a {
   border: rgba(119, 118, 118, 0.548) 1px solid;
 }
 
+.form-wrap-signup .form-group-signup input[type="text"]:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 3px #9ecaed;
+}
+
 .form-wrap-signup .form-group-signup input[type="password"] {
   width: 100%;
   padding: 10px;
@@ -50,6 +56,12 @@ a {
 
 .form-wrap-signup .form-group-signup input[type="password"]:hover {
   border: rgba(119, 118, 118, 0.548) 1px solid;
+}
+
+.form-wrap-signup .form-group-signup input[type="password"]:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 3px #9ecaed;
 }
 
 .form-wrap-signup .form-group-signup input[type="submit"] {

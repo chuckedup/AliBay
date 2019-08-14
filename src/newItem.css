@@ -76,3 +76,57 @@ a {
   font-family: "Open Sans", sans-serif;
   font-size: 15px;
 }
+
+.form-group-newItem select {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  color: grey;
+  margin: 0px;
+  width: 100%;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  appearance: none;
+  background-color: white;
+}
+
+.form-group-newItem select {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  color: grey;
+  margin: 0px;
+  width: 100%;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: #ddd 1px solid;
+  height: 34px;
+  appearance: none;
+  background-color: white;
+}
+.form-group-newItem select:hover {
+  border: rgba(119, 118, 118, 0.548) 1px solid;
+}
+
+.form-group-newItem select:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 3px #9ecaed;
+}
+
+input[type="file"] {
+  display: none;
+}
+.custom-file-upload {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  border: #ddd 1px solid;
+  border-radius: 5px;
+  width: 100%;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.custom-file-upload:hover {
+  border: rgba(119, 118, 118, 0.548) 1px solid;
+}

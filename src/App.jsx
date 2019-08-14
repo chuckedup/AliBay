@@ -46,6 +46,8 @@ class UnconnectedApp extends Component {
     return <NewItem />;
   };
 
+  renderItem = () => {};
+
   render = () => {
     return (
       <BrowserRouter>
@@ -53,7 +55,7 @@ class UnconnectedApp extends Component {
         <Route exact={true} path="/login" component={this.renderLogin} />
         <Route exact={true} path="/signup" component={this.renderSignup} />
         <Route exact={true} path="/newItem" component={this.renderNewItem} />
-        <Route exact={true} path="/item/:id" component={this.renderItemPage} />
+        <Route exact={true} path="/item/:id" component={this.renderItem} />
       </BrowserRouter>
     );
   };

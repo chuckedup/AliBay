@@ -13,17 +13,9 @@ class Signup extends Component {
     };
   }
 
-  handleUsernameChange = event => {
-    this.setState({ username: event.target.value });
-  };
-  handleEmailChange = event => {
-    this.setState({ email: event.target.value });
-  };
-  handlePasswordChange = event => {
-    this.setState({ password: event.target.value });
-  };
-  handleConfirmPasswordChange = event => {
-    this.setState({ confirmPassword: event.target.value });
+  handleChange = event => {
+    let obj = { [event.target.name]: event.target.value };
+    this.setState(obj);
   };
 
   handleSubmit = async event => {
@@ -55,13 +47,21 @@ class Signup extends Component {
       this.state.confirmPassword !== this.state.password &&
       this.state.password.length > 0
     ) {
-      confirmPasswordTextColor = { color: "red", outline: "red 1px solid" };
+      confirmPasswordTextColor = {
+        color: "red",
+        borderColor: "#ff4d4d",
+        boxShadow: "0 0 3px #ff4d4d"
+      };
     }
     if (
       this.state.confirmPassword === this.state.password &&
       this.state.password.length > 0
     ) {
-      confirmPasswordTextColor = { color: "green", outline: "green 1px solid" };
+      confirmPasswordTextColor = {
+        color: "green",
+        borderColor: "#66cc00",
+        boxShadow: "0 0 3px #ccff99"
+      };
     }
     if (
       this.state.confirmPassword === this.state.password &&
@@ -85,7 +85,7 @@ class Signup extends Component {
                 name="username"
                 type="text"
                 value={this.state.username}
-                onChange={this.handleUsernameChange}
+                onChange={this.handleChange}
                 placeholder="Username"
                 required
               />
@@ -95,7 +95,7 @@ class Signup extends Component {
                 name="email"
                 type="text"
                 value={this.state.email}
-                onChange={this.handleEmailChange}
+                onChange={this.handleChange}
                 placeholder="Email"
                 required
               />
@@ -103,10 +103,10 @@ class Signup extends Component {
             <div className="form-group-signup">
               <input
                 style={passwordTextColor}
-                name="pwd"
+                name="password"
                 type="password"
                 value={this.state.password}
-                onChange={this.handlePasswordChange}
+                onChange={this.handleChange}
                 placeholder="Password"
                 required
               />
@@ -114,16 +114,21 @@ class Signup extends Component {
             <div className="form-group-signup">
               <input
                 style={confirmPasswordTextColor}
-                name="cPwd"
+                name="confirmPassword"
                 type="password"
                 value={this.state.confirmPassword}
-                onChange={this.handleConfirmPasswordChange}
+                onChange={this.handleChange}
                 placeholder="Confirm Password"
                 required
               />
             </div>
-            <input type="submit" value="Sign up" />
+            <div className="form-group-signup">
+              <input type="submit" value="Sign up" />
+            </div>
           </form>
+          <div className="login-link">
+            Have an Account? <Link to={"/login"}>Sign Up</Link>
+          </div>
         </div>
       </div>
     );

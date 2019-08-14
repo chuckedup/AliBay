@@ -9,15 +9,14 @@ class UnconnectedNewItem extends Component {
       brand: "",
       img: "",
       model: "",
-      movement: "Quartz",
+      movement: "",
       country: "",
       price: "",
-      style: "Driver"
+      style: ""
     };
   }
 
   handleChange = event => {
-    console.log(event.target.name, event.target.value);
     let obj = { [event.target.name]: event.target.value };
     this.setState(obj);
   };
@@ -50,14 +49,6 @@ class UnconnectedNewItem extends Component {
         <div className="form-wrap-newItem">
           <form onSubmit={this.handleSubmit}>
             <h1 className="newItem-header">Add an Item</h1>
-            <div className="form-group-newItem">
-              <input
-                type="file"
-                onChange={this.handleFileChange}
-                name="Photo"
-                required
-              />
-            </div>
             <div className="form-group-newItem">
               <input
                 type="text"
@@ -99,7 +90,6 @@ class UnconnectedNewItem extends Component {
               />
             </div>
             <div className="form-group-newItem">
-              <label for="input-type">Style</label>
               <select
                 id="input-style"
                 name="style"
@@ -107,13 +97,13 @@ class UnconnectedNewItem extends Component {
                 value={this.state.style}
                 onChange={this.handleChange}
               >
-                <option value="Diver">Driver</option>
+                <option value="">Select Style </option>
+                <option value="Diver">Diver</option>
                 <option value="Dress">Dress</option>
                 <option value="Field">Field</option>
               </select>
             </div>
             <div className="form-group-newItem">
-              <label for="input-movement">Movement</label>
               <select
                 id="input-movement"
                 tabIndex="2"
@@ -121,13 +111,23 @@ class UnconnectedNewItem extends Component {
                 value={this.state.movement}
                 onChange={this.handleChange}
               >
+                <option value="">Select Movement</option>
                 <option value="Quartz">Quartz</option>
                 <option value="Automatic">Automatic</option>
                 <option value="Manual">Manual</option>
               </select>
             </div>
             <div className="form-group-newItem">
-              <input type="reset" value="Clear" />
+              <label for="file-upload" class="custom-file-upload">
+                Image Upload
+              </label>
+              <input
+                id="file-upload"
+                type="file"
+                onChange={this.handleFileChange}
+                name="Photo"
+                required
+              />
             </div>
             <div className="form-group-newItem">
               <input type="submit" value="Add Item" />
