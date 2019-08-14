@@ -7,7 +7,8 @@ class Signup extends Component {
     this.state = {
       username: "",
       email: "",
-      password: ""
+      password: "",
+      confirmPassword: ""
     };
   }
 
@@ -19,6 +20,9 @@ class Signup extends Component {
   };
   handlePasswordChange = event => {
     this.setState({ password: event.target.value });
+  };
+  handleConfirmPasswordChange = event => {
+    this.setState({ confirmpassword: event.target.value });
   };
 
   handleSubmit = async event => {
@@ -42,49 +46,18 @@ class Signup extends Component {
   };
 
   render = () => {
+    let passwordTextColor = { color: "green" }
+    if (this.state.password !== this.state.confirmPassword) {
+      passwordTextColor = { color: "red"}
+    }
     return (
-<<<<<<< HEAD
-      <div>
-        <h2>Sign Up</h2>
-        <form  onSubmit={this.handleSubmit} method="POST">
-          <div>
-            <input
-              type="text"
-              value={this.state.name}
-              onChange={this.handleNameChange}
-              placeholder="Name"
-              required
-            />
-          </div>
-          <div>
-            <input
-              type="email"
-              value={this.state.username}
-              onChange={this.handleUsernameChange}
-              placeholder="Email"
-              required
-            />
-          </div>
-          <div>
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.handlePasswordChange}
-              placeholder="Password"
-              required
-            />
-          </div>
-          <div>
-            <input type="submit" />
-          </div>
-        </form>
-=======
       <div id="container-signup">
         <div className="form-wrap-signup">
           <form onSubmit={this.handleSubmit}>
             <h1 className="login-header">Sign up</h1>
             <div className="form-group-signup">
               <input
+                name="username"
                 type="text"
                 value={this.state.username}
                 onChange={this.handleUsernameChange}
@@ -94,6 +67,7 @@ class Signup extends Component {
             </div>
             <div className="form-group-signup">
               <input
+                name="email"
                 type="text"
                 value={this.state.email}
                 onChange={this.handleEmailChange}
@@ -103,6 +77,8 @@ class Signup extends Component {
             </div>
             <div className="form-group-signup">
               <input
+                style={passwordTextColor}
+                name="pwd"
                 type="password"
                 value={this.state.password}
                 onChange={this.handlePasswordChange}
@@ -110,10 +86,20 @@ class Signup extends Component {
                 required
               />
             </div>
+            <div className="form-group-signup">
+              <input
+                style={passwordTextColor}
+                name="cPwd"
+                type="password"
+                value={this.state.confirmPassword}
+                onChange={this.handleConfirmPasswordChange}
+                placeholder="Confirm Password"
+                required
+              />
+            </div>
             <input type="submit" value="Sign up" />
           </form>
         </div>
->>>>>>> 907736be31b6d11393500461de6cf743fd80de6e
       </div>
     );
   };
