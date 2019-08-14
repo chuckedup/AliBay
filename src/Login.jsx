@@ -43,36 +43,6 @@ class UnconnectedLogin extends Component {
   render = () => {
     console.log(this.props.loginStatus);
     return (
-<<<<<<< HEAD
-      <div>
-        <h2>Log In</h2>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <input
-              type="text"
-              value={this.state.username}
-              onChange={this.handleNameChange}
-              placeholder="Username"
-              required
-            />
-          </div>
-          <div>
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.handlePasswordChange}
-              placeholder="Password"
-              required
-            />
-          </div>
-          <div>
-            <input className="mySubmitButton" type="submit" />
-          </div>
-          <div>
-            <Link to={"/signup"}>Create an Account</Link>
-          </div>
-        </form>
-=======
       <div id="container-login">
         <div className="form-wrap-login">
           <form onSubmit={this.handleSubmit}>
@@ -107,7 +77,6 @@ class UnconnectedLogin extends Component {
             </div>
           </form>
         </div>
->>>>>>> 907736be31b6d11393500461de6cf743fd80de6e
       </div>
     );
   };

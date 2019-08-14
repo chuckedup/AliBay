@@ -17,28 +17,28 @@ class NewItem extends Component {
   }
 
   handleWatchBrandChange = event => {
-    this.setState({...this.state, watchBrand: event.target.value });
+    this.setState({ ...this.state, watchBrand: event.target.value });
   };
   handleWatchImgLocChange = event => {
-    this.setState({...this.state, watchImgLoc: event.target.value });
+    this.setState({ ...this.state, watchImgLoc: event.target.value });
   };
   handleWatchModelNumChange = event => {
-    this.setState({...this.state, watchModelNum: event.target.value });
+    this.setState({ ...this.state, watchModelNum: event.target.value });
   };
   handleWatchMovementChange = event => {
-    this.setState({...this.state, watchMovementOption: event.target.value });
+    this.setState({ ...this.state, watchMovementOption: event.target.value });
   }; // drop-down bar
   handleWatchSaleDateChange = event => {
-    this.setState({...this.state, watchSaleDate: event.target.value });
+    this.setState({ ...this.state, watchSaleDate: event.target.value });
   };
   handleWatchSaleLocChange = event => {
-    this.setState({...this.state, watchSaleLoc: event.target.value });
+    this.setState({ ...this.state, watchSaleLoc: event.target.value });
   };
   handleWatchSalePriceChange = event => {
-    this.setState({...this.state, watchSalePrice: event.target.value });
+    this.setState({ ...this.state, watchSalePrice: event.target.value });
   };
   handleWatchTypeChange = event => {
-    this.setState({...this.state, watchTypeOption: event.target.value });
+    this.setState({ ...this.state, watchTypeOption: event.target.value });
   }; // drop-down bar
 
   handleSubmit = async evt => {
@@ -64,13 +64,13 @@ class NewItem extends Component {
         <h2>Refine your search</h2>
         <form id="newWatch" onSubmit={this.handleSubmit} method="POST">
           <div>
-            <input 
+            <input
               type="file"
               value={this.state.watchImgLoc}
-              onChange={this.handleWatchImgLocChange} 
-              name="watchPhoto"   
+              onChange={this.handleWatchImgLocChange}
+              name="watchPhoto"
               placeholder="Upload watch photo here"
-              multiple 
+              multiple
               required
             />
           </div>
@@ -120,7 +120,12 @@ class NewItem extends Component {
           </div>
           <div>
             <label for="input-watchtype">Style Type</label>
-            <select id="input-watchtype" tabIndex="2" value={this.state.watchTypeOption} onChange={this.handleWatchTypeChange}>
+            <select
+              id="input-watchtype"
+              tabIndex="2"
+              value={this.state.watchTypeOption}
+              onChange={this.handleWatchTypeChange}
+            >
               <option value="0">Driver</option>
               <option value="1">Dress</option>
               <option value="2">Field</option>
@@ -128,7 +133,12 @@ class NewItem extends Component {
           </div>
           <div>
             <label for="input-watchmovement">Movement Type</label>
-            <select id="input-watchmovement" tabIndex="2" value={this.state.watchMovementOption} onChange={this.handleWatchMovementChange}>
+            <select
+              id="input-watchmovement"
+              tabIndex="2"
+              value={this.state.watchMovementOption}
+              onChange={this.handleWatchMovementChange}
+            >
               <option value="Quartz">Quartz</option>
               <option value="Automatic">Automatic</option>
               <option value="Manual">Manual</option>
@@ -142,9 +152,7 @@ class NewItem extends Component {
           </div>
           <div />
         </form>
-        <form id="newWatch" onSubmit={this.handleSubmit} method="POST">
-          
-        </form>
+        <form id="newWatch" onSubmit={this.handleSubmit} method="POST" />
       </div>
     );
   };

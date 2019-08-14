@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./signup.css";
 
 class Signup extends Component {
@@ -54,7 +55,7 @@ class Signup extends Component {
       <div id="container-signup">
         <div className="form-wrap-signup">
           <form onSubmit={this.handleSubmit}>
-            <h1 className="login-header">Sign up</h1>
+            <h1 className="signup-header">Sign up</h1>
             <div className="form-group-signup">
               <input
                 name="username"
@@ -87,6 +88,7 @@ class Signup extends Component {
               />
             </div>
             <div className="form-group-signup">
+<<<<<<< HEAD
               <input
                 style={passwordTextColor}
                 name="cPwd"
@@ -98,6 +100,15 @@ class Signup extends Component {
               />
             </div>
             <input type="submit" value="Sign up" />
+=======
+              <input type="submit" value="Sign up" />
+            </div>
+            <div>
+              <a className="login-link">
+                Have an Account? <Link to={"/Login"}>Sign in</Link>
+              </a>
+            </div>
+>>>>>>> 3199fa8b608e4c3079c0b1787272ea6010e37998
           </form>
         </div>
       </div>
