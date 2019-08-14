@@ -7,12 +7,13 @@ class UnconnectedNewItem extends Component {
     super(props);
     this.state = {
       brand: "",
-      img: "",
+      img: undefined,
       model: "",
       movement: "",
       country: "",
       price: "",
-      style: ""
+      style: "",
+      title: ""
     };
   }
 
@@ -44,11 +45,41 @@ class UnconnectedNewItem extends Component {
   };
 
   render = () => {
+    console.log(this.state.img);
+
+    //When an Image is uploaded tell the user
+    let imageUploaded = <span />;
+    if (this.state.img !== undefined) {
+      imageUploaded = (
+        <div className="image-uploaded-text">
+          {this.state.img.name} Uploaded
+        </div>
+      );
+    }
     return (
       <div id="container-newItem">
         <div className="form-wrap-newItem">
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} id="item-form">
             <h1 className="newItem-header">Add an Item</h1>
+            <div className="form-group-newItem">
+              <input
+                type="text"
+                name="title"
+                value={this.state.title}
+                onChange={this.handleChange}
+                placeholder="Title"
+                required
+              />
+            </div>
+            <div className="form-group-newItem border-textarea ">
+              <textarea
+                name="description"
+                value={this.state.description}
+                form="item-form"
+                onChange={this.handleChange}
+                placeholder="Description"
+              />
+            </div>
             <div className="form-group-newItem">
               <input
                 type="text"
@@ -118,9 +149,10 @@ class UnconnectedNewItem extends Component {
               </select>
             </div>
             <div className="form-group-newItem">
-              <label for="file-upload" class="custom-file-upload">
+              <label for="file-upload" className="custom-file-upload">
                 Image Upload
               </label>
+              {imageUploaded}
               <input
                 id="file-upload"
                 type="file"

@@ -10,7 +10,8 @@ a {
 }
 
 #container-newItem {
-  margin: 125px auto;
+  font-family: "Open Sans", sans-serif;
+  margin: 75px auto;
   max-width: 400px;
   padding: 20px;
 }
@@ -42,15 +43,10 @@ a {
   border: rgba(119, 118, 118, 0.548) 1px solid;
 }
 
-.form-wrap-newItem .form-group-newItem input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  border: #ddd 1px solid;
-  border-radius: 5px;
-}
-
-.form-wrap-newItem .form-group-newItem input[type="password"]:hover {
-  border: rgba(119, 118, 118, 0.548) 1px solid;
+.form-wrap-newItem .form-group-newItem input[type="text"]:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 3px #9ecaed;
 }
 
 .form-wrap-newItem .form-group-newItem input[type="submit"] {
@@ -68,6 +64,26 @@ a {
 .form-wrap-newItem .form-group-newItem input[type="submit"]:hover {
   background-color: #ff5656;
   border-color: #ff5656;
+}
+
+.form-wrap-newItem .form-group-newItem textarea {
+  width: 100%;
+  padding: 10px;
+  border: rgba(221, 221, 221, 0.616) 1px solid;
+  border-radius: 5px;
+}
+.form-wrap-newItem .form-group-newItem textarea:hover {
+  border: rgba(119, 118, 118, 0.548) 1px solid;
+}
+
+.form-wrap-newItem .form-group-newItem textarea:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 3px #9ecaed;
+}
+
+.border-textarea {
+  border-bottom: rgba(119, 118, 118, 0.548) 1px solid;
 }
 
 .create-account-link {
@@ -94,6 +110,7 @@ a {
 .form-group-newItem select {
   text-align: center;
   font-family: "Open Sans", sans-serif;
+  font-size: 9px;
   color: grey;
   margin: 0px;
   width: 100%;
@@ -118,6 +135,7 @@ input[type="file"] {
   display: none;
 }
 .custom-file-upload {
+  color: grey;
   text-align: center;
   font-family: "Open Sans", sans-serif;
   border: #ddd 1px solid;
@@ -128,5 +146,12 @@ input[type="file"] {
   cursor: pointer;
 }
 .custom-file-upload:hover {
+  color: rgb(88, 88, 88);
   border: rgba(119, 118, 118, 0.548) 1px solid;
+}
+
+.image-uploaded-text {
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  font-size: 10px;
 }
