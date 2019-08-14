@@ -54,6 +54,7 @@ class UnconnectedLogin extends Component {
                 onChange={this.handleNameChange}
                 placeholder="Username"
                 id="user-name"
+                required
               />
             </div>
             <div className="form-group-login">
@@ -63,6 +64,7 @@ class UnconnectedLogin extends Component {
                 onChange={this.handlePasswordChange}
                 placeholder="Password"
                 id="password"
+                required
               />
             </div>
             <div className="form-group-login">

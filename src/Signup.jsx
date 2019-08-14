@@ -43,28 +43,39 @@ class Signup extends Component {
 
   render = () => {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            value={this.state.username}
-            onChange={this.handleUsernameChange}
-            placeholder="Username"
-          />
-          <input
-            type="text"
-            value={this.state.email}
-            onChange={this.handleEmailChange}
-            placeholder="Email"
-          />
-          <input
-            type="password"
-            value={this.state.password}
-            onChange={this.handlePasswordChange}
-            placeholder="Password"
-          />
-          <input type="submit" value="Sign up" />
-        </form>
+      <div id="container-signup">
+        <div className="form-wrap-signup">
+          <form onSubmit={this.handleSubmit}>
+            <div className="form-group-signup">
+              <input
+                type="text"
+                value={this.state.username}
+                onChange={this.handleUsernameChange}
+                placeholder="Username"
+                required
+              />
+            </div>
+            <div className="form-group-signup">
+              <input
+                type="text"
+                value={this.state.email}
+                onChange={this.handleEmailChange}
+                placeholder="Email"
+                required
+              />
+            </div>
+            <div className="form-group-signup">
+              <input
+                type="password"
+                value={this.state.password}
+                onChange={this.handlePasswordChange}
+                placeholder="Password"
+                required
+              />
+            </div>
+            <input type="submit" value="Sign up" />
+          </form>
+        </div>
       </div>
     );
   };
