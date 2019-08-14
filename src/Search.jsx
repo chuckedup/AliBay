@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./main.css";
 
-class Search extends Component {
+class NewItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,34 +11,31 @@ class Search extends Component {
       srchWatchMovementOption: "",
       srchWatchSaleDate: "",
       srchWatchSaleLoc: "",
-      srchWatchSalePrice: undefined,
+      srchWatchSalePrice: "",
       srchWatchTypeOption: ""
     };
   }
 
   handleWatchBrandChange = event => {
-    this.setState({ srchWatchBrand: event.target.value });
+    this.setState({...this.state, srchWatchBrand: event.target.value });
   };
-  handleWatchImgLocChange = event => {
-    this.setState({ srchWatchImgLoc: event.target.value });
-  }; // a file ?
   handleWatchModelNumChange = event => {
-    this.setState({ srchWatchModelNum: event.target.value });
+    this.setState({...this.state, srchWatchModelNum: event.target.value });
   };
   handleWatchMovementChange = event => {
-    this.setState({ srchWatchMovementOption: event.target.value });
+    this.setState({...this.state, srchWatchMovementOption: event.target.value });
   }; // drop-down bar
   handleWatchSaleDateChange = event => {
-    this.setState({ srchWatchSaleDate: event.target.value });
+    this.setState({...this.state, srchWatchSaleDate: event.target.value });
   };
   handleWatchSaleLocChange = event => {
-    this.setState({ srchWatchSaleLoc: event.target.value });
+    this.setState({...this.state, srchWatchSaleLoc: event.target.value });
   };
   handleWatchSalePriceChange = event => {
-    this.setState({ srchWatchSalePrice: event.target.value });
+    this.setState({...this.state, srchWatchSalePrice: event.target.value });
   };
   handleWatchTypeChange = event => {
-    this.setState({ srchWatchTypeOption: event.target.value });
+    this.setState({...this.state, srchWatchTypeOption: event.target.value });
   }; // drop-down bar
 
   handleSubmit = async evt => {
@@ -52,7 +49,7 @@ class Search extends Component {
     data.append(srchWatchSaleLoc, this.state.srchWatchSaleLoc);
     data.append(srchWatchSalePrice, this.state.srchWatchSalePrice);
     data.append(srchWatchTypeOption, this.state.srchWatchType);
-    fetch("/search", {
+    fetch("/newItem", {
       method: "POST",
       body: data
     });
@@ -65,9 +62,9 @@ class Search extends Component {
         <form id="search" onSubmit={this.handleSubmit} method="POST">
           <div>
             <input
-              type=""
+              type="text"
               value={this.state.srchWatchSalePrice}
-              onChange=""
+              onChange={this.handleWatchSalePriceChange}
               placeholder="Price"
             />
           </div>
@@ -75,7 +72,7 @@ class Search extends Component {
             <input
               type="text"
               value={this.state.srchWatchBrand}
-              onChange=""
+              onChange={this.handleWatchBrandChange}
               placeholder="Brand"
             />
           </div>
@@ -83,7 +80,7 @@ class Search extends Component {
             <input
               type="text"
               value={this.state.srchWatchSaleLoc}
-              onChange=""
+              onChange={this.handleWatchSaleLocChange}
               placeholder="Location"
             />
           </div>
@@ -91,7 +88,7 @@ class Search extends Component {
             <input
               type="text"
               value={this.state.srchWatchSaleDate}
-              onChange=""
+              onChange={this.handleWatchSaleDateChange}
               placeholder="DD/MM/YYYY"
             />
           </div>
@@ -99,16 +96,8 @@ class Search extends Component {
             <input
               type="text"
               value={this.state.srchWatchModelNum}
-              onChange=""
+              onChange={this.handleWatchModelNumChange}
               placeholder="Model #"
-            />
-          </div>
-          <div>
-            <input
-              type=""
-              value={this.state.srchWatchImgLoc}
-              onChange=""
-              placeholder=""
             />
           </div>
           <div>
@@ -140,4 +129,4 @@ class Search extends Component {
   };
 }
 
-export default Search;
+export default NewItem;
