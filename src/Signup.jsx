@@ -35,29 +35,29 @@ class Signup extends Component {
   render = () => {
     return (
       <div>
-        <form
-          className="sellerForm cardForm container"
-          onSubmit={this.handleSubmit}
-        >
+        <form id="signup" onSubmit={this.handleSubmit} method="POST">
           <input
             type="text"
-            value={this.state.username}
+            value={this.state.name}
             onChange={this.handleNameChange}
             placeholder="Name"
+            required
           />
           <input
-            type="text"
+            type="email"
             value={this.state.username}
             onChange={this.handleUsernameChange}
             placeholder="Email"
+            required
           />
           <input
             type="password"
             value={this.state.password}
             onChange={this.handlePasswordChange}
             placeholder="Password"
+            required
           />
-          <input className="mySubmitButton" type="submit" />
+          <input type="submit" />
         </form>
       </div>
     );
