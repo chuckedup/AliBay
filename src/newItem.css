@@ -1,0 +1,78 @@
+/* newItem Form CSS */
+a {
+  text-decoration: none;
+}
+
+.newItem-header {
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+#container-newItem {
+  margin: 125px auto;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.form-wrap-newItem {
+  background: #fff;
+  border: 1px solid #bbb;
+  padding: 30px 25px;
+  color: #333;
+}
+
+.form-wrap-newItem h1,
+.form-wrap-newItem p {
+  text-align: center;
+}
+
+.form-wrap-newItem .form-group-newItem {
+  margin-top: 10px;
+}
+
+.form-wrap-newItem .form-group-newItem input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: rgba(221, 221, 221, 0.616) 1px solid;
+  border-radius: 5px;
+}
+
+.form-wrap-newItem .form-group-newItem input[type="text"]:hover {
+  border: rgba(119, 118, 118, 0.548) 1px solid;
+}
+
+.form-wrap-newItem .form-group-newItem input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: #ddd 1px solid;
+  border-radius: 5px;
+}
+
+.form-wrap-newItem .form-group-newItem input[type="password"]:hover {
+  border: rgba(119, 118, 118, 0.548) 1px solid;
+}
+
+.form-wrap-newItem .form-group-newItem input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  color: white;
+  background-color: #f75151;
+  border-color: #f75151;
+}
+.form-wrap-newItem .form-group-newItem input[type="submit"]:hover {
+  background-color: #ff5656;
+  border-color: #ff5656;
+}
+
+.create-account-link {
+  text-align: center;
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+}

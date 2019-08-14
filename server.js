@@ -19,6 +19,7 @@ MongoClient.connect(url, { useNewUrlParser: true }, (err, db) => {
 reloadMagic(app);
 
 app.use(cookieParser());
+app.use("/image", express.static("uploads"));
 app.use("/", express.static("build")); // Needed for the HTML and JS files
 app.use("/", express.static("public")); // Needed for local assets
 
@@ -72,6 +73,44 @@ app.post("/signup", upload.none(), (req, res) => {
     }
     res.send(JSON.stringify({ success: false }));
   });
+});
+
+app.post("/newItem", upload.single("img"), (req, res) => {
+  let brand = req.body.brand;
+  let model = req.body.model;
+  let movement = req.body.movement;
+  let date = new Date();
+  let country = req.body.country;
+  let price = parseInt(req.body.price);
+  let style = req.body.style;
+  let username = req.body.username;
+  let file = req.file;
+  let imgPath = "/uploads/" + file.filename;
+  let sid = req.cookies.sid;
+
+  dbo.collection("items").insertOne({
+    brand,
+    imgPath,
+    model,
+    movement,
+    date,
+    country,
+    price,
+    style,
+    username
+  });
+
+  res.send(JSON.stringify({ success: true }));
+});
+
+app.get("/checkLogin", (req, res) => {
+  let sid = req.cookies.sid;
+  let username = sessions[sid];
+  if (sessions[sid] === undefined) {
+    res.send(JSON.stringify({ success: false }));
+    return;
+  }
+  res.send(JSON.stringify({ success: true, username }));
 });
 
 // Your endpoints go before this line

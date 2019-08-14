@@ -37,7 +37,8 @@ class UnconnectedLogin extends Component {
       return;
     }
     this.props.dispatch({
-      type: "login-success"
+      type: "login-success",
+      username: this.state.username
     });
   };
   render = () => {
@@ -71,9 +72,9 @@ class UnconnectedLogin extends Component {
               <input type="submit" value="Login" />
             </div>
             <div>
-              <a className="create-account-link">
-                <Link to={"/signup"}>Create an Account</Link>
-              </a>
+              <Link className="create-account-link" to={"/signup"}>
+                Create an Account
+              </Link>
             </div>
           </form>
         </div>
