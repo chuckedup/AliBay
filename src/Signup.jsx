@@ -1,54 +1,60 @@
 import React, { Component } from "react";
-import "./main.css";
+import "./signup.css";
 
 class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
       username: "",
+      email: "",
       password: ""
     };
   }
 
-  handleNameChange = event => {
-    this.setState({ name: event.target.value });
-  };
   handleUsernameChange = event => {
     this.setState({ username: event.target.value });
+  };
+  handleEmailChange = event => {
+    this.setState({ email: event.target.value });
   };
   handlePasswordChange = event => {
     this.setState({ password: event.target.value });
   };
 
-  handleSubmit = async evt => {
-    evt.preventdefault();
+  handleSubmit = async event => {
+    event.preventDefault();
     let data = new FormData();
     data.append("username", this.state.username);
+    data.append("email", this.state.email);
     data.append("password", this.state.password);
-    fetch("/signup", {
+    let response = await fetch("/signup", {
       method: "POST",
+      credentials: "include",
       body: data
     });
+    let responseBody = await response.text();
+    let body = JSON.parse(responseBody);
+    if (body.success) {
+      alert("success");
+    } else {
+      alert("failed");
+    }
   };
 
   render = () => {
     return (
       <div>
-        <form
-          className="sellerForm cardForm container"
-          onSubmit={this.handleSubmit}
-        >
-          <input
-            type="text"
-            value={this.state.username}
-            onChange={this.handleNameChange}
-            placeholder="Name"
-          />
+        <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             value={this.state.username}
             onChange={this.handleUsernameChange}
+            placeholder="Username"
+          />
+          <input
+            type="text"
+            value={this.state.email}
+            onChange={this.handleEmailChange}
             placeholder="Email"
           />
           <input
@@ -57,7 +63,7 @@ class Signup extends Component {
             onChange={this.handlePasswordChange}
             placeholder="Password"
           />
-          <input className="mySubmitButton" type="submit" />
+          <input type="submit" value="Sign up" />
         </form>
       </div>
     );
