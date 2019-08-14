@@ -41,14 +41,14 @@ class NewItem extends Component {
   handleSubmit = async evt => {
     evt.preventdefault();
     let data = new FormData();
-    data.append(srchWatchBrand, this.state.srchWatchBrand);
-    data.append(srchWatchImgLoc, this.state.srchWatchImgLoc);
-    data.append(srchWatchModelNum, this.state.srchWatchModelNum);
-    data.append(srchWatchMovementOption, this.state.srchWatchMovement);
-    data.append(srchWatchSaleDate, this.state.srchWatchSaleDate);
-    data.append(srchWatchSaleLoc, this.state.srchWatchSaleLoc);
-    data.append(srchWatchSalePrice, this.state.srchWatchSalePrice);
-    data.append(srchWatchTypeOption, this.state.srchWatchType);
+    data.append(WatchBrand, this.state.WatchBrand);
+    data.append(WatchImgLoc, this.state.WatchImgLoc);
+    data.append(WatchModelNum, this.state.WatchModelNum);
+    data.append(WatchMovementOption, this.state.WatchMovement);
+    data.append(WatchSaleDate, this.state.WatchSaleDate);
+    data.append(WatchSaleLoc, this.state.WatchSaleLoc);
+    data.append(WatchSalePrice, this.state.WatchSalePrice);
+    data.append(WatchTypeOption, this.state.WatchType);
     fetch("/newItem", {
       method: "POST",
       body: data
@@ -59,35 +59,38 @@ class NewItem extends Component {
     return (
       <div>
         <h2>Refine your search</h2>
-        <form id="search" onSubmit={this.handleSubmit} method="POST">
+        <form id="newWatch" onSubmit={this.handleSubmit} method="POST">
           <div>
             <input
               type="text"
-              value={this.state.srchWatchSalePrice}
+              value={this.state.WatchSalePrice}
               onChange={this.handleWatchSalePriceChange}
               placeholder="Price"
+              required
             />
           </div>
           <div>
             <input
               type="text"
-              value={this.state.srchWatchBrand}
+              value={this.state.WatchBrand}
               onChange={this.handleWatchBrandChange}
               placeholder="Brand"
+              required
             />
           </div>
           <div>
             <input
               type="text"
-              value={this.state.srchWatchSaleLoc}
+              value={this.state.WatchSaleLoc}
               onChange={this.handleWatchSaleLocChange}
               placeholder="Location"
+              required
             />
           </div>
           <div>
             <input
               type="text"
-              value={this.state.srchWatchSaleDate}
+              value={this.state.WatchSaleDate}
               onChange={this.handleWatchSaleDateChange}
               placeholder="DD/MM/YYYY"
             />
@@ -95,18 +98,10 @@ class NewItem extends Component {
           <div>
             <input
               type="text"
-              value={this.state.srchWatchModelNum}
-              onChange={this.handleWatchModelNumChange}
-              placeholder="Model #"
-            />
-          </div>
-          <div>
-            <label for=""
-            <input
-              type="text"
               value={this.state.WatchModelNum}
               onChange={this.handleWatchModelNumChange}
               placeholder="Model #"
+              required
             />
           </div>
           <div>
@@ -132,6 +127,12 @@ class NewItem extends Component {
             <input type="submit">Search</input>
           </div>
           <div />
+        </form>
+        <form id="newWatch" onSubmit={this.handleSubmit} method="POST">
+          <div>
+            <input type="file" name="watchPhoto" multiple />
+            <input type="submit" value="Upload File" name="Add Watch Photo(s)" />
+          </div>
         </form>
       </div>
     );
