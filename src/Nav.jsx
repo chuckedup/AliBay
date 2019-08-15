@@ -15,6 +15,9 @@ class UnconnectedNav extends Component {
         <Link className="nav-link" to="/">
           Home
         </Link>
+        <Link className="nav-link" to="/allItems">
+          All Items
+        </Link>
         {this.props.loginStatus ? (
           <div style={{ float: "right" }}>
             <Link className="nav-link" to="/newItem">

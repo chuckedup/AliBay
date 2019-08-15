@@ -42,6 +42,14 @@ class UnconnectedApp extends Component {
 
   renderItem = () => {};
 
+  renderAllItems = async () => {
+    console.log("in renderAllItems");
+    let response = await fetch("/getItems");
+    let responseBody = await response.text();
+    let body = JSON.parse(responseBody);
+    console.log(body);
+  };
+
   render = () => {
     return (
       <BrowserRouter>
@@ -50,6 +58,7 @@ class UnconnectedApp extends Component {
         <Route exact={true} path="/signup" component={this.renderSignup} />
         <Route exact={true} path="/newItem" component={this.renderNewItem} />
         <Route exact={true} path="/item/:id" component={this.renderItem} />
+        <Route exact={true} path="/allItems" component={this.renderAllItems} />
       </BrowserRouter>
     );
   };

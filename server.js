@@ -124,6 +124,19 @@ app.get("/logout", (req, res) => {
   res.send(JSON.stringify({ success: true }));
 });
 
+app.get("/getItems", (req, res) => {
+  console.log("get Items");
+  dbo
+    .collection("items")
+    .find({})
+    .toArray((err, items) => {
+      if (err) {
+        console.log("err", err);
+      }
+      res.send(JSON.stringify({ items }));
+    });
+});
+
 // Your endpoints go before this line
 
 app.all("/*", (req, res, next) => {
