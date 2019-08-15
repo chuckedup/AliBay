@@ -19,7 +19,7 @@ class UnconnectedAllItems extends Component {
     return (
       <div>
         {this.state.items.map(item => {
-          <ItemTile item={item} />;
+          return <ItemTile item={item} />;
         })}
       </div>
     );

@@ -19,7 +19,7 @@ MongoClient.connect(url, { useNewUrlParser: true }, (err, db) => {
 reloadMagic(app);
 
 app.use(cookieParser());
-app.use("/image", express.static("uploads"));
+app.use("/uploads", express.static("uploads"));
 app.use("/", express.static("build")); // Needed for the HTML and JS files
 app.use("/", express.static("public")); // Needed for local assets
 
@@ -62,9 +62,15 @@ app.post("/signup", upload.none(), (req, res) => {
       return;
     }
     if (user === null) {
-      dbo
-        .collection("users")
-        .insertOne({ username, password: sha1(password), email });
+      dbo.collection("users").insertOne({
+        username,
+        password: sha1(password),
+        email,
+        cart: [],
+        purchaseHistory: [],
+        itemsForSale: [],
+        soldItems: []
+      });
       res.send(JSON.stringify({ success: true }));
       return;
     }
@@ -78,11 +84,12 @@ app.post("/newItem", upload.single("img"), (req, res) => {
   let movement = req.body.movement;
   let date = new Date();
   let country = req.body.country;
-  let price = parseInt(req.body.price);
+  let price = parseInt(req.body.price).toFixed(2);
   let style = req.body.style;
   let username = req.body.username;
   let title = req.body.title;
   let desc = req.body.desc;
+  let remaining = Math.floor(Math.random() * 11);
   let id = generateid();
   let file = req.file;
   let imgPath = "/uploads/" + file.filename;
@@ -101,6 +108,7 @@ app.post("/newItem", upload.single("img"), (req, res) => {
       username,
       title,
       desc,
+      remaining,
       id
     });
   }

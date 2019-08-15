@@ -5,7 +5,7 @@ button {
   padding: 16px 16px;
   text-decoration: none;
   font-size: 17px;
-  background-color: #fdfdfd;
+  background-color: #f5f5f5;
   border: none;
   font-style: normal;
 }
@@ -13,7 +13,8 @@ button {
 button:hover {
   color: white;
   background-color: #f75151;
-  border-color: #f75151;
+  border: none;
+  cursor: pointer;
 }
 
 button:focus {
@@ -22,9 +23,13 @@ button:focus {
   box-shadow: none;
 }
 
+.right {
+  float: "right";
+}
+
 .topnav {
   overflow: hidden;
-  background-color: #fdfdfd;
+  background-color: #f5f5f5;
   font-family: "Open Sans", sans-serif;
   font-size: 15px;
 }

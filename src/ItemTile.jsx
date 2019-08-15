@@ -1,46 +1,30 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import "./itemTile.css";
 
 class UnconnectedItemTile extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
-  render() {
-    <div />;
-  }
-}
 
-let ItemTile = connect()(UnconnectedItemTile);
-
-class Item extends Component {
   addCart = () => {
-    console.log(this.props.item.id);
-    this.props.method(
-      this.props.item.id,
-      this.props.item.description,
-      this.props.item.imageLocation,
-      this.props.item.cost
-    );
+    console.log(this.props.item);
   };
+
   render() {
     return (
       <div className="card center">
         <div className="left">
-          {" "}
-          <img height="100px" src={this.props.item.imageLocation} />
+          <div className="image">
+            <img height="200px" src={this.props.item.imgPath} />
+          </div>
         </div>
         <div className="right">
-          <div>{this.props.item.description}</div>
-          <div>{this.props.item.cost}</div>
           <div>
-            <Link to={"/seller/" + this.props.item.sellerId}>
-              Link to Seller
-            </Link>
+            {this.props.item.brand} {this.props.item.model}
           </div>
-          <div>
-            <Link to={"/details/" + this.props.item.id}>Details</Link>
-          </div>
+          <div className="price">C ${this.props.item.price}</div>
           <div>
             <button onClick={this.addCart} className="cartButton">
               Add to Cart
@@ -51,5 +35,7 @@ class Item extends Component {
     );
   }
 }
+
+let ItemTile = connect()(UnconnectedItemTile);
 
 export default ItemTile;
