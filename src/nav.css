@@ -1,0 +1,45 @@
+button {
+  float: left;
+  color: #333;
+  text-align: center;
+  padding: 16px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  background-color: #fdfdfd;
+  border: none;
+  font-style: normal;
+}
+
+button:hover {
+  color: white;
+  background-color: #f75151;
+  border-color: #f75151;
+}
+
+button:focus {
+  outline: none;
+  border-color: none;
+  box-shadow: none;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #fdfdfd;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+}
+
+.topnav .nav-link {
+  float: left;
+  color: #333;
+  text-align: center;
+  padding: 0px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav .nav-link:hover {
+  color: white;
+  background-color: #f75151;
+  border-color: #f75151;
+}

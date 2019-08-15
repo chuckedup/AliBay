@@ -4,6 +4,7 @@ import { Route, BrowserRouter, Link } from "react-router-dom";
 import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
 import NewItem from "./NewItem.jsx";
+import Nav from "./Nav.jsx";
 
 class UnconnectedApp extends Component {
   componentDidMount = async () => {
@@ -18,18 +19,10 @@ class UnconnectedApp extends Component {
   };
 
   renderHomepage = () => {
-    let newItem = <div />;
-    if (this.props.loginStatus) {
-      newItem = (
-        <div>
-          <Link to="/newItem">New Post</Link>
-        </div>
-      );
-    }
     return (
       <div>
-        <Link to="/login">Login</Link>
-        {newItem}
+        <Nav />
+        <SearchBar />
       </div>
     );
   };

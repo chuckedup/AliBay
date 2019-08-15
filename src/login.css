@@ -38,6 +38,11 @@ a {
   border: rgba(221, 221, 221, 0.616) 1px solid;
   border-radius: 5px;
 }
+.form-wrap-login .form-group-login input[type="text"]:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 3px #9ecaed;
+}
 
 .form-wrap-login .form-group-login input[type="text"]:hover {
   border: rgba(119, 118, 118, 0.548) 1px solid;
@@ -52,6 +57,12 @@ a {
 
 .form-wrap-login .form-group-login input[type="password"]:hover {
   border: rgba(119, 118, 118, 0.548) 1px solid;
+}
+
+.form-wrap-login .form-group-login input[type="password"]:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 3px #9ecaed;
 }
 
 .form-wrap-login .form-group-login input[type="submit"] {
@@ -69,6 +80,11 @@ a {
 .form-wrap-login .form-group-login input[type="submit"]:hover {
   background-color: #ff5656;
   border-color: #ff5656;
+}
+.form-wrap-login .form-group-login input[type="submit"]:focus {
+  outline: none;
+  border-color: none;
+  box-shadow: none;
 }
 
 .create-account-link {

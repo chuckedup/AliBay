@@ -13,7 +13,8 @@ class UnconnectedNewItem extends Component {
       country: "",
       price: "",
       style: "",
-      title: ""
+      title: "",
+      description: ""
     };
   }
 
@@ -38,6 +39,8 @@ class UnconnectedNewItem extends Component {
     data.append("price", this.state.price);
     data.append("style", this.state.style);
     data.append("username", this.props.username);
+    data.append("title", this.state.title);
+    data.append("desc", this.state.description);
     fetch("/newItem", {
       method: "POST",
       body: data

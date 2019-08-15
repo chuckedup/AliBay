@@ -77,6 +77,12 @@ a {
   border-color: #f75151;
 }
 
+.form-wrap-signup .form-group-signup input[type="submit"]:focus {
+  outline: none;
+  border-color: none;
+  box-shadow: none;
+}
+
 .form-wrap-signup .form-group-signup input[type="submit"]:hover {
   background-color: #ff5656;
   border-color: #ff5656;

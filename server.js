@@ -34,12 +34,10 @@ app.post("/login", upload.none(), (req, res) => {
   dbo.collection("users").findOne({ username }, (err, user) => {
     console.log(user);
     if (err) {
-      console.log("1");
       res.send(JSON.stringify({ success: false }));
       return;
     }
     if (user === null) {
-      console.log("2");
       res.send(JSON.stringify({ success: false }));
       return;
     }
@@ -50,7 +48,6 @@ app.post("/login", upload.none(), (req, res) => {
       res.send(JSON.stringify({ success: true }));
       return;
     }
-    console.log("3");
     res.send(JSON.stringify({ success: false }));
   });
 });
@@ -84,21 +81,29 @@ app.post("/newItem", upload.single("img"), (req, res) => {
   let price = parseInt(req.body.price);
   let style = req.body.style;
   let username = req.body.username;
+  let title = req.body.title;
+  let desc = req.body.desc;
+  let id = generateid();
   let file = req.file;
   let imgPath = "/uploads/" + file.filename;
-  let sid = req.cookies.sid;
 
-  dbo.collection("items").insertOne({
-    brand,
-    imgPath,
-    model,
-    movement,
-    date,
-    country,
-    price,
-    style,
-    username
-  });
+  let sid = req.cookies.sid;
+  if (sessions[sid] === username) {
+    dbo.collection("items").insertOne({
+      brand,
+      imgPath,
+      model,
+      movement,
+      date,
+      country,
+      price,
+      style,
+      username,
+      title,
+      desc,
+      id
+    });
+  }
 
   res.send(JSON.stringify({ success: true }));
 });
@@ -111,6 +116,12 @@ app.get("/checkLogin", (req, res) => {
     return;
   }
   res.send(JSON.stringify({ success: true, username }));
+});
+
+app.get("/logout", (req, res) => {
+  let sid = req.cookies.sid;
+  delete sessions[sid];
+  res.send(JSON.stringify({ success: true }));
 });
 
 // Your endpoints go before this line
