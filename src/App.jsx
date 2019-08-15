@@ -5,6 +5,7 @@ import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
 import NewItem from "./NewItem.jsx";
 import Nav from "./Nav.jsx";
+import SearchBar from "./SearchBar.jsx";
 
 class UnconnectedApp extends Component {
   componentDidMount = async () => {
