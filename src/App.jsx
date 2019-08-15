@@ -6,6 +6,7 @@ import Signup from "./Signup.jsx";
 import NewItem from "./NewItem.jsx";
 import Nav from "./Nav.jsx";
 import SearchBar from "./SearchBar.jsx";
+import AllItems from "./AllItems.jsx";
 
 class UnconnectedApp extends Component {
   componentDidMount = async () => {
@@ -42,12 +43,8 @@ class UnconnectedApp extends Component {
 
   renderItem = () => {};
 
-  renderAllItems = async () => {
-    console.log("in renderAllItems");
-    let response = await fetch("/getItems");
-    let responseBody = await response.text();
-    let body = JSON.parse(responseBody);
-    console.log(body);
+  renderAllItems = () => {
+    return <AllItems />;
   };
 
   render = () => {
