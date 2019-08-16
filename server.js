@@ -32,7 +32,6 @@ app.post("/login", upload.none(), (req, res) => {
   let username = req.body.username;
   let password = req.body.password;
   dbo.collection("users").findOne({ username }, (err, user) => {
-    console.log(user);
     if (err) {
       res.send(JSON.stringify({ success: false }));
       return;
@@ -133,7 +132,6 @@ app.get("/logout", (req, res) => {
 });
 
 app.get("/getItems", (req, res) => {
-  console.log("get Items");
   dbo
     .collection("items")
     .find({})
@@ -143,6 +141,20 @@ app.get("/getItems", (req, res) => {
       }
       res.send(JSON.stringify({ items }));
     });
+});
+
+app.post("/findItem", upload.none(), (req, res) => {
+  let id = Number(req.body.id);
+  console.log(typeof id);
+  dbo.collection("items").findOne({ id: id }, (err, item) => {
+    console.log("in findItem");
+    if (err) {
+      console.log("err", err);
+      return;
+    }
+    console.log(item);
+    res.send(JSON.stringify({ item }));
+  });
 });
 
 // Your endpoints go before this line

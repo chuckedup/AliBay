@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import "./itemTile.css";
 
 class UnconnectedItemTile extends Component {
@@ -22,9 +23,11 @@ class UnconnectedItemTile extends Component {
         </div>
         <div className="right">
           <div>
-            {this.props.item.brand} {this.props.item.model}
+            <Link to={"/item/" + this.props.item.id}>
+              {this.props.item.brand} {this.props.item.model}
+            </Link>
           </div>
-          <div className="price">C ${this.props.item.price}</div>
+          <div className="price">C ${this.props.item.price} </div>
           <div>
             <button onClick={this.addCart} className="cartButton">
               Add to Cart

@@ -7,6 +7,7 @@ import NewItem from "./NewItem.jsx";
 import Nav from "./Nav.jsx";
 import SearchBar from "./SearchBar.jsx";
 import AllItems from "./AllItems.jsx";
+import Item from "./Item.jsx";
 import "./app.css";
 
 class UnconnectedApp extends Component {
@@ -29,6 +30,12 @@ class UnconnectedApp extends Component {
     );
   };
 
+  renderItem = routerData => {
+    console.log("in renderItem ");
+    let itemId = routerData.match.params.id;
+    return <Item id={itemId} />;
+  };
+
   renderLogin = () => {
     return <Login />;
   };
@@ -40,8 +47,6 @@ class UnconnectedApp extends Component {
   renderNewItem = () => {
     return <NewItem />;
   };
-
-  renderItem = () => {};
 
   renderAllItems = () => {
     return (
