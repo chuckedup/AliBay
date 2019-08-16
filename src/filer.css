@@ -1,0 +1,96 @@
+/* <!DOCTYPE html> */
+
+
+.form-group-newItem select {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  color: grey;
+  margin: 0px;
+  width: 100%;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  appearance: none;
+  background-color: white;
+}
+.form-group-newItem select {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 9px;
+  color: grey;
+  margin: 0px;
+  width: 100%;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: #ddd 1px solid;
+  height: 34px;
+  appearance: none;
+  background-color: white;
+}
+.form-group-newItem select:hover {
+  border: rgba(119, 118, 118, 0.548) 1px solid;
+}
+
+.form-group-newItem select:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 3px #9ecaed;
+}
+<div className="form-group-newItem">
+              <select
+                id="input-movement"
+                tabIndex="2"
+                name="movement"
+                value={this.state.movement}
+                onChange={this.handleChange}
+              >
+                <option value="">Select Movement</option>
+                <option value="Quartz">Quartz</option>
+                <option value="Automatic">Automatic</option>
+                <option value="Manual">Manual</option>
+              </select>
+            </div>
+/* <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head> 
+  <body>
+    <div>
+      Price Range:*/
+
+      <form onSubmit="{this.handleSubmit}">
+        <br />
+        Min:
+        <input onChange="{this.handleMessageChange}" type="text" />
+        Max:
+        <input onChange="{this.handleImageURL}" type="text" />
+        <br /><br />
+
+        Style:
+        <input onChange="{this.handleImageURL}" type="text" />
+
+        <br /><br />
+        Movement:
+        <input onChange="{this.handleImageURL}" type="text" />
+        <br /><br />
+        <input type="submit" value="OK" />
+      </form>
+      <button onClick="{this.kick}">OK</button>
+    </div>
+    Style:
+    <div className="form-group-newItem">
+      <input
+        type="text"
+        name="model"
+        value="{this.state.model}"
+        onChange="{this.handleChange}"
+        placeholder="Model #"
+        required
+      />
+    </div>
+  </body>
+</html>
