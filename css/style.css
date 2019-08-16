@@ -23,10 +23,19 @@ p {
 .container {
   max-width: 1100px;
   margin: auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
   overflow: hidden;
 }
-
+.pagecontainer {
+  background: 0;
+  padding: 16px;
+  margin: 0;
+  border: 0;
+  border-bottom: 1px dashed #ddd;
+  box-shadow: none;
+  font-size: 0.8125rem;
+  font-weight: normal;
+}
 .text-center {
   text-align: center;
 }
@@ -68,7 +77,7 @@ p {
 }
 
 .py-1 {
-  padding: 1.5rem 0;
+  padding: 0.5rem 0;
 }
 .py-2 {
   padding: 2rem 0;
@@ -91,17 +100,17 @@ p {
   padding: 1px 1px;
   margin: 8px 0;
   box-sizing: content-box;
-  background: white
-  border-radius: 5px;
+  background: white;
+  border-radius: 10px;
   font-size: 20px;
 }
 .bar2 {
-  width: 50%;
+  width: 30%;
   padding: 1px 1px;
   margin: 8px 0;
-  box-sizing:border-box;
-  background:#93cb52;
-  border-radius: 5px;
+  box-sizing: border-box;
+  background: #93cb52;
+  border-radius: 10px;
   font-size: 15px;
 }
 
@@ -175,7 +184,7 @@ p {
   text-align: center;
   justify-content: center;
   align-items: center;
-  height: 85%;
+  height: 50vh;
   padding: 1rem 2rem;
   /* Overlay */
   position: absolute;
@@ -215,7 +224,7 @@ p {
 }
 
 #who .who-img {
-  background: url("../img/team.jpg") no-repeat center center/cover;
+  background: url("../img/team.jpg") repeat center center/cover;
 }
 
 /* Section: Clients */
