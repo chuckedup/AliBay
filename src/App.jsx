@@ -7,6 +7,8 @@ import NewItem from "./NewItem.jsx";
 import Nav from "./Nav.jsx";
 import SearchBar from "./SearchBar.jsx";
 import AllItems from "./AllItems.jsx";
+import Item from "./Item.jsx";
+import "./app.css";
 
 class UnconnectedApp extends Component {
   componentDidMount = async () => {
@@ -14,7 +16,6 @@ class UnconnectedApp extends Component {
     let response = await fetch("/checkLogin");
     let responseBody = await response.text();
     let body = JSON.parse(responseBody);
-    console.log(body, "body");
     if (body.success) {
       this.props.dispatch({ type: "login-success", username: body.username });
     }
@@ -29,6 +30,12 @@ class UnconnectedApp extends Component {
     );
   };
 
+  renderItem = routerData => {
+    console.log("in renderItem ");
+    let itemId = routerData.match.params.id;
+    return <Item id={itemId} />;
+  };
+
   renderLogin = () => {
     return <Login />;
   };
@@ -41,10 +48,15 @@ class UnconnectedApp extends Component {
     return <NewItem />;
   };
 
-  renderItem = () => {};
-
   renderAllItems = () => {
-    return <AllItems />;
+    return (
+      <div>
+        <Nav />
+        <div className="allitems">
+          <AllItems />
+        </div>
+      </div>
+    );
   };
 
   render = () => {

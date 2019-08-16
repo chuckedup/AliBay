@@ -1,40 +1,66 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "./item.css";
+import "./Item.css";
 
 class UnconnectedItem extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { item: undefined };
   }
 
+  componentDidMount = async () => {
+    console.log("in Item");
+    let body = new FormData();
+    body.append("id", this.props.id);
+    let response = await fetch("/findItem", { method: "POST", body });
+    let responseBody = await response.text();
+    let item = JSON.parse(responseBody).item;
+    console.log(item);
+    this.setState({ item });
+  };
+
   render = () => {
-    return (
-      <div>
-        <div id="1">
-          <img id="1.1" src={this.props.item.imgPath} />
-          <div id="1.2">
-            {/* <h2 id="1.2.1">{this.props.items.title}</h2> ------ NOT YET IMPLEMENTED ------ */}
-            <h3 id="watchDescription">{this.props.item.description}</h3>
-            <h2 id="watchPrice">{this.props.item.price}</h2>
+    if (this.state.item === undefined) {
+      return <div>Loading</div>;
+    } else {
+      return (
+        <div>
+          <div id="main-header">
+            <div>
+              <img id="watch-image" src={this.state.item.imgPath} />
+            </div>
+            <div>
+              <div>
+                <h1>{this.state.item.title}</h1>
+                <p id="description">{this.state.item.description}</p>
+                <div id="priceBuyCart">
+                  <div>
+                    <h2>Price:{this.state.item.price}</h2>
+                  </div>
+                  <div>
+                    <a href="/">Buy</a>
+                  </div>
+                  <div>
+                    <a href="/">Add to Cart</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="info">
+            <h2>More Info</h2>
+            <ul>
+              <li>Brand: {this.state.item.brand}</li>
+              <li>Model: {this.state.item.model}</li>
+              <li>Style: {this.state.item.style}</li>
+              <li>Movement: {this.state.item.movement}</li>
+              <li>Shipping from: {this.state.item.location}</li>
+              <li>Seller Name: {this.state.item.username}</li>
+            </ul>
           </div>
         </div>
-        <div id="2">
-          <h3 id="shippingLocation">{this.props.item.country}</h3>
-          <h3 id="seller">{this.props.item.username}</h3>
-          {/* <h3 id="postDate">{this.props.items.date}</h3> ------ NOT YET IMPLEMENTED ------ */}
-        </div>
-        <div id="3">
-          <h2 id="3.1">More Info</h2>
-          <ul id="3.2">
-            <li id="watchBrand">{this.props.item.brand}</li>
-            <li id="watchModel">{this.props.item.model}</li>
-            <li id="watchStyle">{this.props.item.style}</li>
-            <li id="watchMovement">{this.props.item.movement}</li>
-          </ul>
-        </div>
-      </div>
-    );
+      );
+    }
   };
 }
 

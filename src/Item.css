@@ -1,0 +1,44 @@
+.card {
+  display: block;
+  border: 3px solid black;
+  position: absolute;
+  margin-left: 3%;
+  margin-right: auto;
+  width: 90%;
+  height: 250px;
+}
+
+.watch-primary-info {
+  display: flex;
+  max-height: 150px;
+}
+
+.primary-info-text {
+  font-size: 70%;
+}
+
+.image {
+  width: auto;
+  height: auto;
+  border: 5px solid transparent;
+}
+
+.watch-secondary-info {
+  position: relative;
+  left: 5%;
+  bottom: 5px;
+  font-size: 50%;
+}
+
+.price-buy {
+  display: flex;
+  position: relative;
+  bottom: 30px;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 150%;
+}
+
+p {
+  font-size: 110%;
+}
