@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "./Item.css";
+import "item (version 2).css";
 
 class UnconnectedItem extends Component {
   constructor(props) {
@@ -25,38 +25,36 @@ class UnconnectedItem extends Component {
     } else {
       return (
         <div>
-          <div id="main-header">
-            <div>
-              <img id="watch-image" src={this.state.item.imgPath} />
-            </div>
-            <div>
-              <div>
+          <div class="card">
+            <div class="watch-primary-info">
+              <img class="image" src={this.state.item.imgPath} />
+              <div class="primary-info-text">
                 <h1>{this.state.item.title}</h1>
-                <p id="description">{this.state.item.description}</p>
-                <div id="priceBuyCart">
-                  <div>
-                    <h2>Price:{this.state.item.price}</h2>
-                  </div>
-                  <div>
-                    <a href="/">Buy</a>
-                  </div>
-                  <div>
-                    <a href="/">Add to Cart</a>
+                <p>{this.state.item.description}</p>
+                <div class="price-buy">
+                  <h1>Price:{this.state.item.price}</h1>
+                  <div class="buy-cart">
+                    <div>
+                      <a href="/">Buy</a>
+                    </div>
+                    <div>
+                      <a href="/">Add to Cart</a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div id="info">
-            <h2>More Info</h2>
-            <ul>
-              <li>Brand: {this.state.item.brand}</li>
-              <li>Model: {this.state.item.model}</li>
-              <li>Style: {this.state.item.style}</li>
-              <li>Movement: {this.state.item.movement}</li>
-              <li>Shipping from: {this.state.item.location}</li>
-              <li>Seller Name: {this.state.item.username}</li>
-            </ul>
+            <div class="watch-secondary-info">
+              <h1>More Info</h1>
+              <ul class="secondary-info-list">
+                <li>Brand: {this.state.item.brand}</li>
+                <li>Model: {this.state.item.model}</li>
+                <li>Style: {this.state.item.style}</li>
+                <li>Movement: {this.state.item.movement}</li>
+                <li>Shipping from: {this.state.item.location}</li>
+                <li>Seller Name: {this.state.item.username}</li>
+              </ul>
+            </div>
           </div>
         </div>
       );
