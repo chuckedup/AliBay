@@ -12,6 +12,7 @@
 .search-bar {
   display: inline-block;
   width: 100%;
+  padding-top: 4px;
 }
 
 .search-bar input[type="text"] {
@@ -20,7 +21,7 @@
   padding: 10px;
   border: rgba(221, 221, 221, 0.616) 1px solid;
   border-radius: 5px;
-  height: 54px;
+  height: 40px;
   z-index: 10;
   font-family: "Open Sans", sans-serif;
   font-size: 15px;
@@ -35,10 +36,17 @@
 .search-bar input[type="text"]:hover {
   border: rgba(119, 118, 118, 0.548) 1px solid;
 }
-
+.fa-search {
+  position: relative;
+  bottom: 5px;
+}
 .search-bar button {
   margin-left: -11%;
   margin-top: 1px;
+  padding-top: -5px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  height: 5px;
   margin-right: 2px;
   width: 10%;
   background-color: #fff;

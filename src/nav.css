@@ -24,11 +24,14 @@ button:focus {
   box-shadow: none;
 }
 
+.search-bar input[type="text"] {
+  height: 20px;
+}
+
 .right-nav {
-  width: 25%;
-  /* border: 1px solid red; */
+  width: 20%;
   margin-right: 10px;
-  float: right;
+  float: left;
   text-align: center;
 }
 
@@ -37,11 +40,15 @@ button:focus {
   /* border: 1px solid red; */
   margin-right: 10px;
   float: left;
+  text-align: center;
+}
+
+.left-nav-center {
+  display: inline-block;
 }
 
 .center-nav {
-  width: 40%;
-  /* border: 1px solid red; */
+  width: 46%;
   margin-right: 10px;
   float: left;
 }
@@ -53,7 +60,7 @@ button:focus {
   font-size: 15px;
   text-align: center;
   width: 100;
-  height: auto;
+  height: 50px;
 }
 
 .topnav .nav-link {

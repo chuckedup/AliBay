@@ -9,18 +9,38 @@ class UnconnectedAllItems extends Component {
     this.state = { items: [] };
   }
   componentDidMount = async () => {
-    let response = await fetch("/getItems");
+    let data = new FormData();
+    console.log(this.props.brand);
+    data.append("brand", this.props.brand);
+    data.append("movement", this.props.movement);
+    data.append("style", this.props.style);
+    let response = await fetch("/getItems", { method: "POST", body: data });
     let responseBody = await response.text();
-    let data = JSON.parse(responseBody).items;
-    console.log(data);
-    let items = data.filter(item => {
+    let body = JSON.parse(responseBody).items;
+    let items = body.filter(item => {
       let title = item.title.toLowerCase();
       return title.includes(this.props.query.toLowerCase());
     });
     this.setState({ items });
   };
+
+  componentDidUpdate = async () => {
+    let data = new FormData();
+    console.log(this.props.brand);
+    data.append("brand", this.props.brand);
+    data.append("movement", this.props.movement);
+    data.append("style", this.props.style);
+    let response = await fetch("/getItems", { method: "POST", body: data });
+    let responseBody = await response.text();
+    let body = JSON.parse(responseBody).items;
+    let items = body.filter(item => {
+      let title = item.title.toLowerCase();
+      return title.includes(this.props.query.toLowerCase());
+    });
+    this.setState({ items });
+  };
+
   render() {
-    console.log(this.state.items);
     return (
       <div className="container">
         {this.state.items.map(item => {

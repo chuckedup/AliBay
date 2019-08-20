@@ -1,4 +1,4 @@
-.card {
+.card-item {
   position: absolute;
   margin-left: 5%;
   margin-right: 5%;
@@ -10,26 +10,23 @@
   min-width: 320px;
 }
 
-.image {
+.card-item .image {
   border: 10px solid transparent;
   min-width: 15em;
   max-height: 15em;
   height: auto;
 }
 
-p {
+.card-item p {
   max-height: 80px;
   font-size: calc(0.5em + 1vw);
 }
 
-.price-buy {
+.card-item .price-buy {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-around;
-}
-
-.primary-info-text {
 }
 
 .watch-secondary-info {

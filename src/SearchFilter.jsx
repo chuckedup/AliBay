@@ -27,7 +27,7 @@ class UnconnectedSearchFilter extends Component {
 
   submitHandler = event => {
     event.preventDefault();
-    this.dispatch({ type: "search", search: this.state });
+    this.props.dispatch({ type: "adv-search", search: this.state });
   };
 
   render() {

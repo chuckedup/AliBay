@@ -14,34 +14,44 @@ class UnconnectedNav extends Component {
     return (
       <div class="topnav">
         <div className="left-nav">
-          <Link className="nav-link" to="/">
-            Home
-          </Link>
-          <Link className="nav-link" to="/allItems">
-            All Items
-          </Link>
+          <div className="left-nav-center">
+            <Link className="nav-link" to="/">
+              Home
+            </Link>
+            <Link className="nav-link" to="/allItems">
+              All Items
+            </Link>
+          </div>
         </div>
         <div className="center-nav">
-          {this.props.allItems ? <SearchBar /> : <span />}
+          {this.props.allItems ? (
+            <SearchBar history={this.props.history} />
+          ) : (
+            <span />
+          )}
         </div>
         <div className="right-nav">
-          {this.props.loginStatus ? (
-            <div style={{ float: "right" }}>
-              <Link className="nav-link" to="/newItem">
-                Sell Item
-              </Link>
-              <button onClick={this.logoutHandler}>
-                <span>
-                  Logout
-                  {/*<i class="fas fa-sign-out-alt" /> */}
-                </span>
-              </button>
-            </div>
-          ) : (
-            <Link className="nav-link" to="/login">
-              Sign in
-            </Link>
-          )}
+          <div classaName="right-nav-center">
+            {this.props.loginStatus ? (
+              <div style={{ float: "right" }}>
+                <Link className="nav-link" to="/newItem">
+                  Sell Item
+                </Link>
+                <button onClick={this.logoutHandler}>
+                  <span>
+                    Logout
+                    {/*<i class="fas fa-sign-out-alt" /> */}
+                  </span>
+                </button>
+              </div>
+            ) : (
+              <div style={{ float: "right" }}>
+                <Link className="nav-link" to="/login">
+                  Sign in
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     );

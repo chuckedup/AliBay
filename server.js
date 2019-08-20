@@ -131,10 +131,29 @@ app.get("/logout", (req, res) => {
   res.send(JSON.stringify({ success: true }));
 });
 
-app.get("/getItems", (req, res) => {
+app.post("/getItems", upload.none(), (req, res) => {
+  let brand = req.body.brand;
+  let movement = req.body.movement;
+  let style = req.body.style;
+
+  let criteria = {};
+
+  if (brand.length > 0) {
+    criteria.brand = brand;
+  }
+
+  if (movement.length > 0) {
+    criteria.movement = movement;
+  }
+
+  if (style.length > 0) {
+    criteria.style = style;
+  }
+  console.log(criteria);
+
   dbo
     .collection("items")
-    .find({})
+    .find(criteria)
     .toArray((err, items) => {
       if (err) {
         console.log("err", err);
@@ -146,7 +165,7 @@ app.get("/getItems", (req, res) => {
 app.post("/findItem", upload.none(), (req, res) => {
   let id = Number(req.body.id);
   console.log(typeof id);
-  dbo.collection("items").findOne({ id: id }, (err, item) => {
+  dbo.collection("items").findOne({ id }, (err, item) => {
     console.log("in findItem");
     if (err) {
       console.log("err", err);

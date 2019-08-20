@@ -27,8 +27,7 @@ class UnconnectedSearchBar extends Component {
     // let response = await fetch("/searchQuery", { method: "POST", body: data });
     // let responseBody = await response.text();
     // let body = JSON.parse(responseBody);
-    this.props.dispatch({ type: "search-query", search: this.state.search });
-    console.log(this.props.history);
+    this.props.dispatch({ type: "search", search: this.state });
     this.props.history.push("/allItems");
   };
 

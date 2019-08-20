@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "item (version 2).css";
+import "./item (version 2).css";
 
 class UnconnectedItem extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class UnconnectedItem extends Component {
     } else {
       return (
         <div>
-          <div class="card">
+          <div class="card-item">
             <div class="watch-primary-info">
               <img class="image" src={this.state.item.imgPath} />
               <div class="primary-info-text">

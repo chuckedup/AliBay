@@ -34,15 +34,20 @@ class UnconnectedApp extends Component {
   renderItem = routerData => {
     console.log("in renderItem ");
     let itemId = routerData.match.params.id;
-    return <Item id={itemId} />;
+    return (
+      <div>
+        <Nav allItems={true} />
+        <Item id={itemId} />
+      </div>
+    );
   };
 
-  renderLogin = () => {
-    return <Login />;
+  renderLogin = props => {
+    return <Login history={props.history} />;
   };
 
   renderSignup = () => {
-    return <Signup />;
+    return <Signup history={this.props.history} />;
   };
 
   renderNewItem = () => {
@@ -55,7 +60,7 @@ class UnconnectedApp extends Component {
         <Nav allItems={true} />
         <div className="search-container">
           <div className="allitems">
-            <SearchFilter />
+            <SearchFilter history={this.props.history} />
             <AllItems />
           </div>
         </div>
