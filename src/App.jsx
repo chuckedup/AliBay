@@ -8,6 +8,7 @@ import Nav from "./Nav.jsx";
 import SearchBar from "./SearchBar.jsx";
 import AllItems from "./AllItems.jsx";
 import Item from "./Item.jsx";
+import SearchFilter from "./SearchFilter.jsx";
 import "./app.css";
 
 class UnconnectedApp extends Component {
@@ -24,8 +25,8 @@ class UnconnectedApp extends Component {
   renderHomepage = () => {
     return (
       <div>
-        <Nav />
-        <SearchBar />
+        <Nav allItems={false} />
+        <SearchBar history={this.props.history} />
       </div>
     );
   };
@@ -51,9 +52,12 @@ class UnconnectedApp extends Component {
   renderAllItems = () => {
     return (
       <div>
-        <Nav />
-        <div className="allitems">
-          <AllItems />
+        <Nav allItems={true} />
+        <div className="search-container">
+          <div className="allitems">
+            <SearchFilter />
+            <AllItems />
+          </div>
         </div>
       </div>
     );

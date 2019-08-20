@@ -1,11 +1,100 @@
 .container1 {
-  margin: 5px;
-  max-width: 100%;
+  margin-top: 30px;
+  width: 25%;
   display: flex;
   flex-direction: row;
   border-style: solid;
   padding: 10px 20px;
   border-radius: 8px;
-  background: url("./watch1.jpg") no-repeat center center/cover;
   height: 150px;
+  float: left;
+  margin-left: 5%;
+  border: rgba(221, 221, 221, 0.616) 1px solid;
+  height: 100%;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  color: rgba(43, 42, 42, 0.575);
+}
+
+.container1 h2 {
+  text-align: left;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.innerContainer {
+  width: 100%;
+}
+
+.center-search {
+  display: inline-block;
+  width: 100%;
+}
+
+.container1 input[type="text"] {
+  width: 50px;
+  height: 30px;
+  padding: 10px;
+  border: rgba(221, 221, 221, 0.616) 1px solid;
+  border-radius: 5px;
+}
+
+.container1 input[type="text"]:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 3px #9ecaed;
+}
+
+.container1 input[type="text"]:hover {
+  border: rgba(119, 118, 118, 0.548) 1px solid;
+}
+
+.container1 select {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  color: grey;
+  margin: 0px;
+  width: 100%;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: #ddd 1px solid;
+  height: 34px;
+  appearance: none;
+  background-color: white;
+}
+.container1 select:hover {
+  border: rgba(119, 118, 118, 0.548) 1px solid;
+}
+
+.container1 select:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 3px #9ecaed;
+}
+
+.container1 .brand {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 9px;
+  padding: 5px;
+  font-size: 16px;
+  height: 34px;
+  border: #ddd 1px solid;
+}
+
+.container1 input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  color: white;
+  background-color: #f75151;
+  border-color: #f75151;
+}
+.container1 input[type="submit"]:hover {
+  background-color: #ff5656;
+  border-color: #ff5656;
 }
