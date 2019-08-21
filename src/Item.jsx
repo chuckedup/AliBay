@@ -25,37 +25,23 @@ class UnconnectedItem extends Component {
     } else {
       return (
         <div>
-          <div class="card-item">
-            <div class="watch-primary-info">
-              <img class="image" src={this.state.item.imgPath} />
-              <div class="primary-info-text">
-                <h1>{this.state.item.title}</h1>
-                <p>{this.state.item.description}</p>
-                <div class="price-buy">
-                  <h1>Price:{this.state.item.price}</h1>
-                  <div class="buy-cart">
-                    <div>
-                      <a href="/">Buy</a>
-                    </div>
-                    <div>
-                      <a href="/">Add to Cart</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="watch-secondary-info">
-              <h1>More Info</h1>
-              <ul class="secondary-info-list">
-                <li>Brand: {this.state.item.brand}</li>
-                <li>Model: {this.state.item.model}</li>
-                <li>Style: {this.state.item.style}</li>
-                <li>Movement: {this.state.item.movement}</li>
-                <li>Shipping from: {this.state.item.location}</li>
-                <li>Seller Name: {this.state.item.username}</li>
-              </ul>
-            </div>
-          </div>
+          <img class="img center" src="img\watch3.jpg" />
+
+          <h1>{this.state.item.title}</h1>
+          <ul>{this.state.item.description}</ul>
+          <h1>Price:{this.state.item.price}</h1>
+          <h1>More Info</h1>
+          <ul>
+            <li>Brand: {this.state.item.brand}</li>
+            <li>Model: {this.state.item.model}</li>
+            <li>Style: {this.state.item.style}</li>
+            <li>Movement: {this.state.item.movement}</li>
+            <li>Shipping from: {this.state.item.location}</li>
+            <li>Seller Name: {this.state.item.username}</li>
+            <button type="submit" class="button">
+              Add to Cart
+            </button>
+          </ul>
         </div>
       );
     }

@@ -21,13 +21,13 @@ class UnconnectedCart extends Component {
 
   render = () => {
     if (this.state.cart === undefined) {
-      return <div>You have no items in your cart</div>;
+      return <h2>You have no items in your cart</h2>;
     } else {
       return (
         <div>
-          <div id="main-header">
+          <div id="cart-header">
             <div>
-              <h3>CART</h3>
+              <h3>SHOPPING CART</h3>
             </div>
             <div>
               <div>
@@ -47,15 +47,12 @@ class UnconnectedCart extends Component {
               </div>
             </div>
           </div>
-          <div id="info">
-            <h2>More Info</h2>
+          <div id="cart">
+            <h2>Shopping Cart</h2>
             <ul>
               <li>Qty: {this.state.item.qty}</li>
-              <li>Item#: {this.state.item.model}</li>
+              <li>Description: {this.state.item.description}</li>
               <li>Price: {this.state.item.price}</li>
-              <li>Movement: {this.state.item.movement}</li>
-              <li>Shipping from: {this.state.item.location}</li>
-              <li>Seller Name: {this.state.item.username}</li>
             </ul>
           </div>
         </div>
