@@ -27,7 +27,7 @@ class UnconnectedNav extends Component {
           {this.props.allItems ? (
             <SearchBar history={this.props.history} />
           ) : (
-            <span />
+            <div className="imitate-search" />
           )}
         </div>
         <div className="right-nav">

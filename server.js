@@ -207,8 +207,34 @@ app.get("/showCart", (req, res) => {
       console.log("err", err);
       return;
     }
-    console.log(item);
     res.send(JSON.stringify({ item }));
+  });
+});
+
+app.post("/deleteCart", upload.none(), (req, res) => {
+  let sid = req.cookies.sid;
+  let username = sessions[sid];
+
+  let id = Number(req.body.id);
+
+  dbo.collection("users").findOne({ username }, (err, user) => {
+    if (err) {
+      console.log("err", err);
+      return;
+    }
+    let items = user.cart;
+    let newItems = items.filter(item => {
+      return item.id !== id;
+    });
+    console.log(newItems);
+    dbo
+      .collection("users")
+      .updateOne({ username }, { $set: { cart: newItems } }, (err, user) => {
+        if (err) {
+          console.log("err", err);
+        }
+        res.send(JSON.stringify({ success: true }));
+      });
   });
 });
 // Your endpoints go before this line

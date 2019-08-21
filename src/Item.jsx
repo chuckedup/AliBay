@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "./item (version 2).css";
+import "./item.css";
 
 class UnconnectedItem extends Component {
   constructor(props) {
@@ -34,12 +34,14 @@ class UnconnectedItem extends Component {
       return <div>Loading</div>;
     } else {
       return (
-        <div>
-          <img class="img center" src="img\watch3.jpg" />
+        <div className="container-item">
+          <img class="img-item center-item" src={this.state.item.imgPath} />
 
           <h1>{this.state.item.title}</h1>
-          <ul>{this.state.item.description}</ul>
-          <h1>Price:{this.state.item.price}</h1>
+          <div className="description">
+            <p>{this.state.item.desc}</p>
+          </div>
+          <h1>Price: {this.state.item.price}</h1>
           <h1>More Info</h1>
           <ul>
             <li>Brand: {this.state.item.brand}</li>
@@ -48,7 +50,11 @@ class UnconnectedItem extends Component {
             <li>Movement: {this.state.item.movement}</li>
             <li>Shipping from: {this.state.item.location}</li>
             <li>Seller Name: {this.state.item.username}</li>
-            <button type="submit" class="button-add-cart">
+            <button
+              onClick={this.addCartHandler}
+              type="submit"
+              class="button-add-cart"
+            >
               Add to Cart
             </button>
           </ul>

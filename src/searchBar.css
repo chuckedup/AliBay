@@ -1,16 +1,10 @@
-/* .search-bar-container {
-  text-align: center;
-  width: 100%;
-  margin-top: 150px;
-} */
-
-.search-bar-container {
+.center-nav .search-bar-container {
   text-align: center;
   width: 100%;
   /* margin-top: 120px; */
 }
 
-.search-bar {
+.center-nav .search-bar {
   display: inline-block;
   width: 100%;
   padding-top: 4px;
@@ -20,7 +14,7 @@
   width: 100%;
   float: left;
   padding: 10px;
-  border: rgba(221, 221, 221, 0.616) 1px solid;
+  border: rgba(179, 177, 177, 0.616) 1px solid;
   border-radius: 5px;
   height: 40px;
   z-index: 10;
@@ -37,10 +31,18 @@
 .search-bar input[type="text"]:hover {
   border: rgba(119, 118, 118, 0.548) 1px solid;
 }
+
+.search-bar input[type="text"]::placeholder {
+  color: rgba(146, 145, 145, 0.616);
+}
+.search-bar input[type="text"]:hover::placeholder {
+  color: rgba(87, 85, 85, 0.548);
+}
+
 .fa-search {
   position: relative;
-  bottom: 3px;
-  height: 20px;
+  bottom: 1px;
+  font-size: 18px;
 }
 .search-bar button {
   margin-left: -11%;
@@ -62,4 +64,17 @@
 
 .search-bar input[type="text"]:focus ~ .submit-search {
   color: rgba(119, 118, 118, 0.548);
+}
+
+.homepage .search-bar-container {
+  text-align: center;
+  width: 100%;
+  margin-top: 300px;
+  /* border: 1px black solid; */
+}
+
+.homepage .search-bar {
+  display: inline-block;
+  width: 50%;
+  padding-top: 4px;
 }

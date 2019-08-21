@@ -25,8 +25,9 @@ class UnconnectedApp extends Component {
 
   renderHomepage = () => {
     return (
-      <div>
+      <div className="homepage">
         <Nav allItems={false} />
+        {/* JEFF RIGHT HERE BABY */}
         <SearchBar history={this.props.history} />
       </div>
     );

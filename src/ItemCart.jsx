@@ -9,8 +9,26 @@ class UnconnectedItemCart extends Component {
     this.state = {};
   }
 
-  addCart = () => {
-    console.log(this.props.item);
+  deleteCartHandler = async event => {
+    console.log("delete pressedn");
+    event.preventDefault();
+    let data = new FormData();
+    data.append("id", this.props.item.id);
+    let response = await fetch("/deleteCart", {
+      method: "POST",
+      body: data,
+      credentials: "include"
+    });
+    let responseBody = await response.text();
+    let body = JSON.parse(responseBody);
+    if (body.success) {
+      console.log("true");
+      let res = await fetch("/showCart");
+      let resBody = await res.text();
+      let bod = JSON.parse(resBody);
+      let cart = bod.item.cart;
+      this.props.updateCart(cart);
+    }
   };
 
   render() {
@@ -18,7 +36,7 @@ class UnconnectedItemCart extends Component {
       <div className="center-cart">
         <div className="left">
           <div className="close">
-            <button>
+            <button onClick={this.deleteCartHandler}>
               <i class="fas fa-times" />
             </button>
           </div>

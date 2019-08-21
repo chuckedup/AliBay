@@ -17,11 +17,14 @@ class Pay extends Component {
     return (
       // ...
       <StripeCheckout
+        ComponentClass="div"
         name="Niro Shop"
         description="some text"
         token={this.onToken}
         stripeKey="pk_test_yYg0mtIomH3mM3TIixAmQsK8005vBiT2Yb"
-      />
+      >
+        <button>Buy</button>
+      </StripeCheckout>
     );
   }
 }

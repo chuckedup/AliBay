@@ -79,3 +79,9 @@
   background-color: #ff5656;
   border-color: #ff5656;
 }
+
+.imitate-search {
+  display: inline-block;
+  width: 100%;
+  padding-top: 4px;
+}

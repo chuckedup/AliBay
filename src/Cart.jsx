@@ -21,6 +21,10 @@ class UnconnectedCart extends Component {
     this.setState({ cart });
   };
 
+  updateCart = cart => {
+    this.setState({ cart });
+  };
+
   render = () => {
     let total = 0;
     if (this.state.cart === undefined) {
@@ -34,7 +38,7 @@ class UnconnectedCart extends Component {
           <div className="container-cart">
             {this.state.cart.map(item => {
               total = total + item.price;
-              return <ItemCart item={item} />;
+              return <ItemCart item={item} updateCart={this.updateCart} />;
             })}
           </div>
           <div className="total-price">
