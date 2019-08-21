@@ -31,7 +31,7 @@ class UnconnectedNav extends Component {
           )}
         </div>
         <div className="right-nav">
-          <div classaName="right-nav-center">
+          <div className="right-nav-center">
             {this.props.loginStatus ? (
               <div style={{ float: "right" }}>
                 <Link className="nav-link" to="/newItem">

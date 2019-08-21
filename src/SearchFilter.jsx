@@ -81,7 +81,6 @@ class UnconnectedSearchFilter extends Component {
                 value={this.state.style}
                 onChange={this.handleChange}
                 position="relative"
-                font-size="25px"
               >
                 <option value="">Style </option>
                 <option value="Diver">Diver</option>
@@ -96,7 +95,6 @@ class UnconnectedSearchFilter extends Component {
                 name="movement"
                 value={this.state.movement}
                 onChange={this.handleChange}
-                font-size="25px"
                 position="relative"
               >
                 <option value="">Movement</option>
