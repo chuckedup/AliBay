@@ -17,6 +17,11 @@ class UnconnectedItemCart extends Component {
     return (
       <div className="center-cart">
         <div className="left">
+          <div className="close">
+            <button>
+              <i class="fas fa-times" />
+            </button>
+          </div>
           <div className="image">
             <img height="175px" src={this.props.item.imgPath} />
           </div>
@@ -30,7 +35,7 @@ class UnconnectedItemCart extends Component {
               {this.props.item.brand} {this.props.item.model}
             </div>
           </div>
-          <div className="price">C ${this.props.item.price} </div>
+          <div className="price">C ${this.props.item.price}.95 </div>
         </div>
       </div>
     );

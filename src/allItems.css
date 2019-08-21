@@ -1,0 +1,35 @@
+.fa-arrow-left {
+  font-size: 20px;
+}
+
+.fa-arrow-right {
+  font-size: 20px;
+}
+
+.allItem-page-buttons button {
+  background: white;
+  border: none;
+  padding: 6px;
+  transition: 0.3ms;
+  font-size: 20px;
+}
+
+.allItem-page-buttons button:hover {
+  color: #f75151;
+}
+
+.allItem-page-buttons button:focus {
+  outline: none;
+}
+
+.pageNumbers {
+  float: left;
+}
+
+.pg-ctrls {
+  display: inline-block;
+}
+
+.previous-page {
+  float: left;
+}

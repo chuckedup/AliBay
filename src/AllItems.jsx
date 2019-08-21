@@ -1,29 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import ItemTile from "./ItemTile.jsx";
-import "./app.css";
+import "./allItems.css";
 
 class UnconnectedAllItems extends Component {
   constructor(props) {
     super(props);
     this.state = { items: [], page: 0 };
   }
-
-  nextHandler = () => {
-    console.log("next");
-    let nextPage = this.state.page + 1;
-    if (nextPage * 5 <= this.state.items.length) {
-      this.setState({ page: nextPage }, () => this.renderItemsAsLiElems());
-    }
-  };
-
-  previousHandler = () => {
-    console.log("previous");
-    let previousPage = this.state.page - 1;
-    if (previousPage >= 0) {
-      this.setState({ page: previousPage }, () => this.renderItemsAsLiElems());
-    }
-  };
 
   componentDidMount = async () => {
     let data = new FormData();
@@ -57,18 +41,56 @@ class UnconnectedAllItems extends Component {
     this.setState({ items });
   };
 
+  nextHandler = () => {
+    console.log("next");
+    let nextPage = this.state.page + 1;
+    if (nextPage * 5 < this.state.items.length) {
+      this.setState({ page: nextPage }, () => this.renderItemsAsLiElems());
+    }
+  };
+
+  previousHandler = () => {
+    console.log("previous");
+    let previousPage = this.state.page - 1;
+    if (previousPage >= 0) {
+      this.setState({ page: previousPage }, () => this.renderItemsAsLiElems());
+    }
+  };
+
   itemsToDisplay = () => {
     let x = 0 + this.state.page * 5;
     let y = 5 + this.state.page * 5;
     return this.state.items.slice(x, y);
   };
 
-  renderItemsAsLiElems = () => {
-    let key = 1;
+  pageButtonHandler = page => {
+    this.setState({ page }, () => {
+      this.renderItemsAsLiElems();
+    });
+  };
+
+  renderPageNumbers = () => {
+    let numberOfPages = Math.ceil(this.state.items.length / 5);
+    let pageArray = [];
+    for (let p = 0; p < numberOfPages; p++) {
+      pageArray.push(p);
+    }
     return (
-      <div className="container">
+      <div>
+        {pageArray.map(p => {
+          return (
+            <button onClick={() => this.pageButtonHandler(p)}>{p + 1}</button>
+          );
+        })}
+      </div>
+    );
+  };
+
+  renderItemsAsLiElems = () => {
+    return (
+      <div>
         {this.itemsToDisplay().map(item => {
-          return <ItemTile key={key++} item={item} />;
+          return <ItemTile item={item} />;
         })}
       </div>
     );
@@ -79,11 +101,18 @@ class UnconnectedAllItems extends Component {
       return <div>loading...</div>;
     }
     return (
-      <div>
+      <div className="container">
         <div>{this.renderItemsAsLiElems()}</div>
-        <div>
-          <button onClick={this.previousHandler}>Previous</button>
-          <button onClick={this.nextHandler}>Next</button>
+        <div className="allItem-page-buttons  pg-ctrls">
+          <div className="previous-page">
+            <button onClick={this.previousHandler}>
+              <i class="fas fa-arrow-left" />
+            </button>
+          </div>
+          <div className="pageNumbers">{this.renderPageNumbers()}</div>
+          <button onClick={this.nextHandler}>
+            <i class="fas fa-arrow-right" />
+          </button>
         </div>
       </div>
     );
