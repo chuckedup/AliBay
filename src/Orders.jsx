@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Orders.css";
+import "./orders.css";
 
 class Orders extends Component {
   render() {
@@ -10,25 +10,13 @@ class Orders extends Component {
           counter++;
           return (
             <div>
-              <h1 className="orderNumber">Order #{counter}</h1>
-              {Object.keys(item).map((key, index) => {
-                console.log(item[key]);
-                return (
-                  <div className="item">
-                    {" "}
-                    <div className="leftCart">
-                      {" "}
-                      <img height="100px" src={item[key].imageLocation} />
-                    </div>
-                    <div className="rightCart">
-                      <div>{item[key].description}</div>
-                      <div>{item[key].cost}</div>
-                      <div>Amount: {item[key].counter}</div>
-                      <div />
-                    </div>
-                  </div>
-                );
-              })}
+              <h1>Order History</h1>
+              <div class="boxed">
+                <h3>Order #xxx</h3>
+                <ul>{item[key].description}</ul>
+                <ul>item[key].cost}</ul>
+                <ul>Amount: {item[key].counter}</ul>
+              </div>
             </div>
           );
         })}
@@ -37,4 +25,4 @@ class Orders extends Component {
   }
 }
 
-export default Orders;
+export default orders;

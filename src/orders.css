@@ -1,0 +1,25 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Staatliches", cursive;
+  margin-bottom: 0.55rem;
+  line-height: 1.4;
+}
+ul {
+  text-decoration: underline;
+  border-width: 50%;
+  border-block: 5px;
+  list-style: none;
+}
+
+.boxed {
+  border: 2px solid red;
+  background-color: lightgrey;
+  width: 500px;
+  padding: 20px;
+  margin: 10 px 20px;
+  border-radius: 8px;
+}
