@@ -1,44 +1,28 @@
-/* .card {
-  display: block;
-  border: 3px solid black;
-  position: absolute;
-  margin-left: 3%;
-  margin-right: auto;
-  width: 90%;
-  height: 250px;
-}
-
-.watch-primary-info {
-  display: flex;
-  max-height: 150px;
-}
-
-.primary-info-text {
-  font-size: 70%;
-}
-
-.image {
-  width: auto;
-  height: auto;
-  border: 5px solid transparent;
-}
-
-.watch-secondary-info {
-  position: relative;
-  left: 5%;
-  bottom: 5px;
-  font-size: 50%;
-}
-
-.price-buy {
-  display: flex;c
-  position: relative;
-  bottom: 30px;
-  justify-content: space-around;
+.button-add-cart {
+  background-color: red; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: flexbox;
   align-items: center;
-  font-size: 150%;
+  justify-content: center;
+  font-size: 16px;
+  margin: 10px 400px;
+  cursor: pointer;
 }
 
-p {
-  font-size: 110%;
-} */
+ul {
+  list-style: none;
+  text-align: center;
+}
+
+img {
+  width: 25%;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
