@@ -1,0 +1,70 @@
+.container-cart {
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+}
+.cart {
+  width: 100%;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.cart-title {
+  display: inline-block;
+  text-align: left;
+  width: 70%;
+}
+
+.cart h1 {
+  color: rgba(17, 17, 17, 0.548);
+  font-family: "Open Sans", sans-serif;
+  font-size: 30px;
+  font-weight: normal;
+}
+
+.cart h1:hover {
+  color: rgba(5, 5, 5, 0.692);
+}
+
+.total-price {
+  width: 80%;
+  text-align: right;
+  font-family: "Open Sans", sans-serif;
+  font-size: 30px;
+  color: rgba(17, 17, 17, 0.548);
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
+.total-price:hover {
+  color: rgba(5, 5, 5, 0.692);
+}
+
+.total-text {
+  color: rgba(0, 0, 0, 0.692);
+  font-size: 20px;
+}
+
+.buy-button {
+  width: 60%;
+  display: inline-block;
+  text-align: right;
+  margin-top: -400px;
+}
+
+.buy-button-child {
+  display: inline-block;
+}
+
+.buy-button button {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  background-color: #f75151;
+  border: none;
+  font-style: normal;
+  color: white;
+}

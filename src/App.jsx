@@ -8,6 +8,8 @@ import Nav from "./Nav.jsx";
 import SearchBar from "./SearchBar.jsx";
 import AllItems from "./AllItems.jsx";
 import Item from "./Item.jsx";
+import SearchFilter from "./SearchFilter.jsx";
+import Cart from "./Cart.jsx";
 import "./app.css";
 
 class UnconnectedApp extends Component {
@@ -24,8 +26,8 @@ class UnconnectedApp extends Component {
   renderHomepage = () => {
     return (
       <div>
-        <Nav />
-        <SearchBar />
+        <Nav allItems={false} />
+        <SearchBar history={this.props.history} />
       </div>
     );
   };
@@ -33,28 +35,52 @@ class UnconnectedApp extends Component {
   renderItem = routerData => {
     console.log("in renderItem ");
     let itemId = routerData.match.params.id;
-    return <Item id={itemId} />;
+    return (
+      <div>
+        <Nav allItems={true} />
+        <Item id={itemId} />
+      </div>
+    );
   };
 
-  renderLogin = () => {
-    return <Login />;
+  renderLogin = props => {
+    return <Login history={props.history} />;
   };
 
-  renderSignup = () => {
-    return <Signup />;
+  renderSignup = props => {
+    return <Signup history={props.history} />;
   };
 
-  renderNewItem = () => {
-    return <NewItem />;
+  renderNewItem = props => {
+    return (
+      <div>
+        <Nav allItems={true} />
+        <NewItem history={props.history} />
+      </div>
+    );
   };
 
   renderAllItems = () => {
     return (
-      <div>
-        <Nav />
-        <div className="allitems">
-          <AllItems />
+      <div className="allItem-render">
+        <Nav allItems={true} />
+        <div className="search-and-items">
+          <div className="search-container">
+            <SearchFilter history={this.props.history} />
+          </div>
+          <div className="allitems">
+            <AllItems />
+          </div>
         </div>
+      </div>
+    );
+  };
+
+  renderCart = () => {
+    return (
+      <div>
+        <Nav allItems={true} />
+        <Cart />
       </div>
     );
   };
@@ -68,6 +94,7 @@ class UnconnectedApp extends Component {
         <Route exact={true} path="/newItem" component={this.renderNewItem} />
         <Route exact={true} path="/item/:id" component={this.renderItem} />
         <Route exact={true} path="/allItems" component={this.renderAllItems} />
+        <Route exact={true} path="/cart" component={this.renderCart} />
       </BrowserRouter>
     );
   };

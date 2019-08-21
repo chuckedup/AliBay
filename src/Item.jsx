@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "item (version 2).css";
+import "./item (version 2).css";
 
 class UnconnectedItem extends Component {
   constructor(props) {
@@ -19,13 +19,23 @@ class UnconnectedItem extends Component {
     this.setState({ item });
   };
 
+  addCartHandler = async () => {
+    console.log("in cart handler");
+    let data = new FormData();
+    data.append("id", this.props.id);
+    let response = await fetch("/addCart", { method: "POST", body: data });
+    let responseBody = await response.text();
+    let body = JSON.parse(responseBody);
+    console.log(body);
+  };
+
   render = () => {
     if (this.state.item === undefined) {
       return <div>Loading</div>;
     } else {
       return (
         <div>
-          <div class="card">
+          <div class="card-item">
             <div class="watch-primary-info">
               <img class="image" src="champ.jpg" />
               <div class="primary-info-text">
@@ -38,7 +48,7 @@ class UnconnectedItem extends Component {
                       <a href="/">Buy</a>
                     </div>
                     <div>
-                      <a href="/">Add to Cart</a>
+                      <button onClick={this.addCartHandler}>Add to Cart</button>
                     </div>
                   </div>
                 </div>

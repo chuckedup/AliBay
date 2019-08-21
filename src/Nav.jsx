@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "./nav.css";
+import SearchBar from "./SearchBar.jsx";
 
 class UnconnectedNav extends Component {
   logoutHandler = () => {
@@ -12,29 +13,49 @@ class UnconnectedNav extends Component {
   render() {
     return (
       <div class="topnav">
-        <Link className="nav-link" to="/">
-          Home
-        </Link>
-        <Link className="nav-link" to="/allItems">
-          All Items
-        </Link>
-        {this.props.loginStatus ? (
-          <div style={{ float: "right" }}>
-            <Link className="nav-link" to="/newItem">
-              Sell Item
+        <div className="left-nav">
+          <div className="left-nav-center">
+            <Link className="nav-link" to="/">
+              Home
             </Link>
-            <button onClick={this.logoutHandler}>
-              <span>
-                Logout
-                {/*<i class="fas fa-sign-out-alt" /> */}
-              </span>
-            </button>
+            <Link className="nav-link" to="/allItems">
+              All Items
+            </Link>
           </div>
-        ) : (
-          <Link className="nav-link" to="/login">
-            Sign in
-          </Link>
-        )}
+        </div>
+        <div className="center-nav">
+          {this.props.allItems ? (
+            <SearchBar history={this.props.history} />
+          ) : (
+            <span />
+          )}
+        </div>
+        <div className="right-nav">
+          <div className="right-nav-center">
+            {this.props.loginStatus ? (
+              <div style={{ float: "right" }}>
+                <Link className="nav-link" to="/newItem">
+                  Sell Item
+                </Link>
+                <Link className="nav-link" to="/cart">
+                  <i class="fas fa-shopping-cart" />
+                </Link>
+                <button onClick={this.logoutHandler}>
+                  <span>
+                    Logout
+                    {/*<i class="fas fa-sign-out-alt" /> */}
+                  </span>
+                </button>
+              </div>
+            ) : (
+              <div style={{ float: "right" }}>
+                <Link className="nav-link" to="/login">
+                  Sign in
+                </Link>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     );
   }

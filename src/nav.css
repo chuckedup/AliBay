@@ -1,42 +1,73 @@
-button {
+.right-nav button {
   float: left;
   color: #333;
   text-align: center;
   padding: 16px 16px;
   text-decoration: none;
   font-size: 17px;
-  background-color: #f5f5f5;
+  background-color: #f75151;
   border: none;
   font-style: normal;
+  color: white;
 }
 
-button:hover {
+.right-nav button:hover {
   color: white;
-  background-color: #f75151;
+  background-color: #ff5656;
   border: none;
   cursor: pointer;
 }
 
-button:focus {
+.right-nav button:focus {
   outline: none;
   border-color: none;
   box-shadow: none;
 }
 
-.right {
-  float: "right";
+.search-bar input[type="text"] {
+  height: 20px;
+}
+
+.right-nav {
+  width: 20%;
+  margin-right: 10px;
+  float: left;
+  text-align: center;
+}
+
+.left-nav {
+  width: 25%;
+  /* border: 1px solid red; */
+  margin-right: 10px;
+  float: left;
+  text-align: center;
+}
+
+.left-nav-center {
+  display: inline-block;
+}
+
+.center-nav {
+  width: 46%;
+  margin-right: 10px;
+  float: left;
 }
 
 .topnav {
   overflow: hidden;
-  background-color: #f5f5f5;
+  background-color: #f75151;
   font-family: "Open Sans", sans-serif;
   font-size: 15px;
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0;
 }
 
 .topnav .nav-link {
   float: left;
-  color: #333;
+  color: white;
   text-align: center;
   padding: 0px 16px;
   text-decoration: none;
@@ -45,6 +76,6 @@ button:focus {
 
 .topnav .nav-link:hover {
   color: white;
-  background-color: #f75151;
-  border-color: #f75151;
+  background-color: #ff5656;
+  border-color: #ff5656;
 }

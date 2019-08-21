@@ -83,7 +83,7 @@ app.post("/newItem", upload.single("img"), (req, res) => {
   let movement = req.body.movement;
   let date = new Date();
   let country = req.body.country;
-  let price = parseInt(req.body.price).toFixed(2);
+  let price = parseInt(req.body.price);
   let style = req.body.style;
   let username = req.body.username;
   let title = req.body.title;
@@ -131,10 +131,28 @@ app.get("/logout", (req, res) => {
   res.send(JSON.stringify({ success: true }));
 });
 
-app.get("/getItems", (req, res) => {
+app.post("/getItems", upload.none(), (req, res) => {
+  let brand = req.body.brand;
+  let movement = req.body.movement;
+  let style = req.body.style;
+
+  let criteria = {};
+
+  if (brand.length > 0) {
+    criteria.brand = brand;
+  }
+
+  if (movement.length > 0) {
+    criteria.movement = movement;
+  }
+
+  if (style.length > 0) {
+    criteria.style = style;
+  }
+
   dbo
     .collection("items")
-    .find({})
+    .find(criteria)
     .toArray((err, items) => {
       if (err) {
         console.log("err", err);
@@ -145,9 +163,46 @@ app.get("/getItems", (req, res) => {
 
 app.post("/findItem", upload.none(), (req, res) => {
   let id = Number(req.body.id);
-  console.log(typeof id);
-  dbo.collection("items").findOne({ id: id }, (err, item) => {
-    console.log("in findItem");
+  dbo.collection("items").findOne({ id }, (err, item) => {
+    if (err) {
+      console.log("err", err);
+      return;
+    }
+    res.send(JSON.stringify({ item }));
+  });
+});
+
+app.post("/addCart", upload.none(), (req, res) => {
+  console.log("in addCart");
+  let id = Number(req.body.id);
+  let sid = req.cookies.sid;
+  let username = sessions[sid];
+  console.log(id, username);
+  dbo.collection("items").findOne({ id }, (err, item) => {
+    if (err) {
+      console.log("err", err);
+      return;
+    }
+    dbo
+      .collection("users")
+      .updateOne(
+        { username: username },
+        { $addToSet: { cart: item } },
+        (err, item) => {
+          if (err) {
+            console.log("err", err);
+            return;
+          }
+          res.send(JSON.stringify({ success: true }));
+        }
+      );
+  });
+});
+
+app.get("/showCart", (req, res) => {
+  let sid = req.cookies.sid;
+  let username = sessions[sid];
+  dbo.collection("users").findOne({ username }, (err, item) => {
     if (err) {
       console.log("err", err);
       return;
@@ -156,7 +211,6 @@ app.post("/findItem", upload.none(), (req, res) => {
     res.send(JSON.stringify({ item }));
   });
 });
-
 // Your endpoints go before this line
 
 app.all("/*", (req, res, next) => {
