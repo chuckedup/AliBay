@@ -10,22 +10,27 @@
 }
 
 /* Add some padding inside the card container */
-.container {
-  padding: 30px 16px;
-  width: 70%;
-  margin-left: 30%;
+.center-cart-container {
+  text-align: center;
+  width: 100%;
+  border: 1px solid grey;
 }
-
-.center {
+.center-cart {
+  display: inline-block;
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
-  margin: auto;
-  width: 100%;
-  padding-left: 10px;
-  height: 220px;
-  padding-bottom: 10px;
-  margin-bottom: 15px;
+  width: 70%;
+  height: 200px;
+  border-bottom: 1px solid rgba(221, 221, 221, 0.616);
+  border-top: 1px solid rgba(221, 221, 221, 0.616);
+  transition: 0.3s;
 }
+
+.center-cart:hover {
+  border-bottom: 1px solid rgba(119, 118, 118, 0.548);
+  border-top: 1px solid rgba(119, 118, 118, 0.548);
+}
+
 .left {
   width: 30%;
   height: auto;

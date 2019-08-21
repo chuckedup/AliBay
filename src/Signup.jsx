@@ -33,6 +33,7 @@ class Signup extends Component {
     let body = JSON.parse(responseBody);
     if (body.success) {
       alert("success");
+      this.props.history.push("/login");
     } else {
       alert("failed");
     }

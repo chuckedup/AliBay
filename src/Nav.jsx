@@ -37,6 +37,9 @@ class UnconnectedNav extends Component {
                 <Link className="nav-link" to="/newItem">
                   Sell Item
                 </Link>
+                <Link className="nav-link" to="/cart">
+                  <i class="fas fa-shopping-cart" />
+                </Link>
                 <button onClick={this.logoutHandler}>
                   <span>
                     Logout

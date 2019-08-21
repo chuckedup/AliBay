@@ -70,6 +70,7 @@ class UnconnectedSearchFilter extends Component {
                 <option value="Hamilton" />
                 <option value="Tissot" />
                 <option value="Junghans" />
+                <option value="A. Lange & Sohne" />
               </datalist>
             </div>
             <div>
