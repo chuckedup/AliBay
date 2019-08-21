@@ -45,6 +45,7 @@ class UnconnectedNewItem extends Component {
       method: "POST",
       body: data
     });
+    this.props.history.push("/allItems");
   };
 
   render = () => {

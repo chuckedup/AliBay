@@ -31,11 +31,14 @@ class UnconnectedNav extends Component {
           )}
         </div>
         <div className="right-nav">
-          <div classaName="right-nav-center">
+          <div className="right-nav-center">
             {this.props.loginStatus ? (
               <div style={{ float: "right" }}>
                 <Link className="nav-link" to="/newItem">
                   Sell Item
+                </Link>
+                <Link className="nav-link" to="/cart">
+                  <i class="fas fa-shopping-cart" />
                 </Link>
                 <button onClick={this.logoutHandler}>
                   <span>

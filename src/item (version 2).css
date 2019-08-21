@@ -1,37 +1,75 @@
-.card-item {
-  position: absolute;
-  margin-left: 5%;
-  margin-right: 5%;
+.card {
   font-size: calc(0.5em + 1vw);
+  margin: 10%;
+  min-width: 320px;
 }
 
 .watch-primary-info {
   display: flex;
-  min-width: 320px;
+  align-items: center;
 }
 
-.card-item .image {
-  border: 10px solid transparent;
-  min-width: 15em;
-  max-height: 15em;
-  height: auto;
+.image {
+  height: calc(12em + 1vw);
+  width: auto;
 }
 
-.card-item p {
-  max-height: 80px;
-  font-size: calc(0.5em + 1vw);
-}
-
-.card-item .price-buy {
+p {
   position: relative;
+  max-width: auto;
+  font-size: calc(0.15em + 1vw);
+  margin-left: 10%;
+}
+
+.price-buy {
+  position: relative;
+  bottom: 15px;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.watch-secondary-info {
+.primary-info-text {
   position: relative;
-  right: -10px;
-  bottom: 20px;
-  font-size: calc(0.5em + 1vw);
+}
+
+.watch-title {
+  font-weight: 1000;
+  position: relative;
+  margin: 2%;
+}
+
+.price-title {
+  font-style: oblique;
+  font-weight: 10;
+}
+
+.secondary-info-list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: calc(0.25em + 1vw);
+  justify-content: space-evenly;
+  right: 7%;
+}
+
+.list-obj {
+  display: flex;
+  white-space: nowrap;
+  width: auto;
+  font-size: calc(0.25em + 1vw);
+}
+
+.moreinfo-title {
+  white-space: nowrap;
+  border-right: solid transparent 40px;
+}
+
+.list1 {
+  border-right: solid transparent 10px;
+}
+
+.list2 {
+  position: relative;
+  left: 5%;
 }

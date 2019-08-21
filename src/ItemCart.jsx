@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import "./itemTile.css";
+import "./itemCart.css";
 
-class UnconnectedItemTile extends Component {
+class UnconnectedItemCart extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -15,7 +15,7 @@ class UnconnectedItemTile extends Component {
 
   render() {
     return (
-      <div className="card center">
+      <div className="center-cart">
         <div className="left">
           <div className="image">
             <img height="175px" src={this.props.item.imgPath} />
@@ -30,13 +30,13 @@ class UnconnectedItemTile extends Component {
               {this.props.item.brand} {this.props.item.model}
             </div>
           </div>
-          <div className="price">C ${this.props.item.price}.95 </div>
+          <div className="price">C ${this.props.item.price} </div>
         </div>
       </div>
     );
   }
 }
 
-let ItemTile = connect()(UnconnectedItemTile);
+let ItemCart = connect()(UnconnectedItemCart);
 
-export default ItemTile;
+export default ItemCart;

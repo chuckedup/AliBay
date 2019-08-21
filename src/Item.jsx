@@ -19,12 +19,23 @@ class UnconnectedItem extends Component {
     this.setState({ item });
   };
 
+  addCartHandler = async () => {
+    console.log("in cart handler");
+    let data = new FormData();
+    data.append("id", this.props.id);
+    let response = await fetch("/addCart", { method: "POST", body: data });
+    let responseBody = await response.text();
+    let body = JSON.parse(responseBody);
+    console.log(body);
+  };
+
   render = () => {
     if (this.state.item === undefined) {
       return <div>Loading</div>;
     } else {
       return (
         <div>
+<<<<<<< HEAD
           <img class="img center" src="img\watch3.jpg" />
 
           <h1>{this.state.item.title}</h1>
@@ -42,6 +53,45 @@ class UnconnectedItem extends Component {
               Add to Cart
             </button>
           </ul>
+=======
+          <div class="card-item">
+            <div class="watch-primary-info">
+              <img class="image" src="champ.jpg" />
+              <div class="primary-info-text">
+                <h1 class="watch-title">{this.state.item.title}</h1>
+                <p>{this.state.item.description}</p>
+                <div class="price-buy">
+                  <h2 class="price-title">Price: {this.state.item.price}</h2>
+                  <div class="buy-cart">
+                    <div>
+                      <a href="/">Buy</a>
+                    </div>
+                    <div>
+                      <button onClick={this.addCartHandler}>Add to Cart</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="watch-secondary-info">
+              <ul class="secondary-info-list">
+                <h1 class="moreinfo-title">More Info</h1>
+                <div class="list-obj">
+                  <div class="list1">
+                    <li>Brand: {this.state.item.brand}</li>
+                    <li>Model: {this.state.item.model}</li>
+                    <li>Style: {this.state.item.style}</li>
+                  </div>
+                  <div class="list2">
+                    <li>Movement: {this.state.item.movement}</li>
+                    <li>Shipping from: {this.state.item.location}</li>
+                    <li>Seller Name: {this.state.item.username}</li>
+                  </div>
+                </div>
+              </ul>
+            </div>
+          </div>
+>>>>>>> 09d7fd92f5693263de250df7988d447ccead62b3
         </div>
       );
     }
