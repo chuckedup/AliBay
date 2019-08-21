@@ -27,12 +27,12 @@ class UnconnectedItem extends Component {
         <div>
           <div class="card">
             <div class="watch-primary-info">
-              <img class="image" src={this.state.item.imgPath} />
+              <img class="image" src="champ.jpg" />
               <div class="primary-info-text">
-                <h1>{this.state.item.title}</h1>
+                <h1 class="watch-title">{this.state.item.title}</h1>
                 <p>{this.state.item.description}</p>
                 <div class="price-buy">
-                  <h1>Price:{this.state.item.price}</h1>
+                  <h2 class="price-title">Price: {this.state.item.price}</h2>
                   <div class="buy-cart">
                     <div>
                       <a href="/">Buy</a>
@@ -45,14 +45,20 @@ class UnconnectedItem extends Component {
               </div>
             </div>
             <div class="watch-secondary-info">
-              <h1>More Info</h1>
               <ul class="secondary-info-list">
-                <li>Brand: {this.state.item.brand}</li>
-                <li>Model: {this.state.item.model}</li>
-                <li>Style: {this.state.item.style}</li>
-                <li>Movement: {this.state.item.movement}</li>
-                <li>Shipping from: {this.state.item.location}</li>
-                <li>Seller Name: {this.state.item.username}</li>
+                <h1 class="moreinfo-title">More Info</h1>
+                <div class="list-obj">
+                  <div class="list1">
+                    <li>Brand: {this.state.item.brand}</li>
+                    <li>Model: {this.state.item.model}</li>
+                    <li>Style: {this.state.item.style}</li>
+                  </div>
+                  <div class="list2">
+                    <li>Movement: {this.state.item.movement}</li>
+                    <li>Shipping from: {this.state.item.location}</li>
+                    <li>Seller Name: {this.state.item.username}</li>
+                  </div>
+                </div>
               </ul>
             </div>
           </div>
