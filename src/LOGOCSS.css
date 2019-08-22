@@ -10,3 +10,15 @@
   left: 45%;
 }
 /* PLACEMENT/NO ANIMATION ^^^ */
+
+/* Require knowledge of Y-AXIS placement! vvvvv */
+
+/* @keyframes moveback {
+    from{ transform: translateX(-400)}
+    to{ transform: translateX()}
+}
+
+@keyframes movefront {
+    from{ transform: translateX(-400)}
+    to{ transform: translateX()}
+} */
