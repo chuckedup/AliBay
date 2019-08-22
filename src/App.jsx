@@ -27,7 +27,8 @@ class UnconnectedApp extends Component {
     return (
       <div className="homepage">
         <Nav allItems={false} />
-        {/* JEFF RIGHT HERE BABY */}
+        <img src="img\logos\logoBack.png" />
+        <img src="img\logos\LogoFront.png" />
         <SearchBar history={this.props.history} />
       </div>
     );
