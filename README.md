@@ -17,3 +17,8 @@ A marketplace for users to buy and sell watches.
 * Page for users to sell watches.
 * Ability to search through available watches.
 * Ability to add item to cart, delete item from cart, and checkout items in cart.
+
+## Add how to use:
+
+> `npm install`
+2. npm start
