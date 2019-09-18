@@ -20,9 +20,9 @@ A marketplace for users to buy and sell watches.
 
 ## How to run
 
-###### Install Dependencies 
+###### Install Dependencies :
 
 > `npm install`
 
-###### Start Server with Nodemon
+###### Start Server with Nodemon:
 > `npm start`
