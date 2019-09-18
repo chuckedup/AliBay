@@ -18,7 +18,11 @@ A marketplace for users to buy and sell watches.
 * Ability to search through available watches.
 * Ability to add item to cart, delete item from cart, and checkout items in cart.
 
-## Add how to use:
+## How to run
+
+###### Install Dependencies 
 
 > `npm install`
-2. npm start
+
+###### Start Server with Nodemon
+> `npm start`
