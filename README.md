@@ -26,3 +26,7 @@ A marketplace for users to buy and sell watches.
 
 ###### Start Server with Nodemon:
 > `npm start`
+
+###### Connect to your MongoDB database (server.js line 14):
+
+> `14 let url = "ADD YOUR URL HERE";`
